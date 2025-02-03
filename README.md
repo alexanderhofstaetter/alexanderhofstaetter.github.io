@@ -1,1 +1,0 @@
-# hofstaetter.github.io

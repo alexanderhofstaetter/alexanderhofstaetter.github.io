@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.34.1">
+    <meta name="project" content="PVE v0.0.1">
+
+
+    <title>API Reference — PVE v0.0.1</title>
+    <link rel="stylesheet" href="dist/html-elixir-VEFCVPF3.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-FE64E7E5.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-7XSQ4GTY.js"></script>
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
+PVE
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.0.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of PVE</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+
+    <span>API Reference <small class="app-vsn">PVE v0.0.1</small></span>
+  </h1>
+
+
+  <section class="details-list">
+    <h2 id="modules" class="section-heading">
+  <a href="#modules" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Modules</span>
+</h2>
+
+    <div class="summary">
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.html" translate="no">Owat</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Owat keeps the contexts that define your domain
+and business logic.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Address.BevImporter.html" translate="no">Owat.Address.BevImporter</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>An importer to use with <code class="inline">Owat.Address.import/2</code></p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Auth.ApiKey.html" translate="no">Owat.Auth.ApiKey</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Module to handle API Keys.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Auth.ClientCredentials.html" translate="no">Owat.Auth.ClientCredentials</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Agent for handling Keycloak Client Credentials for the OWAT Core</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Auth.Token.html" translate="no">Owat.Auth.Token</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Handles tokens for transferring authenticated context.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.CallDisplay.html" translate="no">Owat.CallDisplay</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>This module handles the call display registration.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.CallDisplay.Content.html" translate="no">Owat.CallDisplay.Content</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>This module manages the content that is displayed on the call display.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Channel.html" translate="no">Owat.Channel</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Provides functionality for OWAT resource-, presence- and rpc-channels.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Communications.html" translate="no">Owat.Communications</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Module to handle communication with the patient (like E-Mail and SMS)</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.CrudUtils.html" translate="no">Owat.CrudUtils</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A module for utility functions when handling broadcastable CRUD operations</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Elga.Token.html" translate="no">Owat.Elga.Token</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Module for handling ELGA Tokens</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Elga.ZPI.html" translate="no">Owat.Elga.ZPI</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Client module for ELGA Z-PI</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Elga.ZPI.Error.html" translate="no">Owat.Elga.ZPI.Error</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Error info for Z-PI Operations</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.html" translate="no">Owat.Gin</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Common GIN Functions</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.Consult.html" translate="no">Owat.Gin.Consult</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Module for consult operations.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.DataService.html" translate="no">Owat.Gin.DataService</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Caching facility for general SS12 data such as codes and options</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.DialogPool.html" translate="no">Owat.Gin.DialogPool</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Dialog Pool</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.ECardReader.html" translate="no">Owat.Gin.ECardReader</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Bindings for handling eCard Reader devices</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.ECardReader.Error.html" translate="no">Owat.Gin.ECardReader.Error</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.SS12.html" translate="no">Owat.Gin.SS12</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>SS12 Helper Module</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.SS12.Aum.html" translate="no">Owat.Gin.SS12.Aum</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>SS12 API Binding for AUM</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.SS12.Base.html" translate="no">Owat.Gin.SS12.Base</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Open Data Query Service</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.SS12.Dialog.html" translate="no">Owat.Gin.SS12.Dialog</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>SS12 Dialog Struct</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.SS12.Fdas.html" translate="no">Owat.Gin.SS12.Fdas</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Open Data Query Service</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.SS12.Kse.html" translate="no">Owat.Gin.SS12.Kse</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Consult Service</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.SS12.Support.html" translate="no">Owat.Gin.SS12.Support</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Helper module for common SS12 functions</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.Signing.html" translate="no">Owat.Gin.Signing</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Signing supervisor</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.Signing.Detector.html" translate="no">Owat.Gin.Signing.Detector</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Small task to scan recurring for e-Card readers.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Gin.SvPersonV2.html" translate="no">Owat.Gin.SvPersonV2</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Handles objects of type SvPersonV2 of the SS12 API</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Guardian.html" translate="no">Owat.Guardian</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Guardian adapter for OWAT.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Guardian.Plug.html" translate="no">Owat.Guardian.Plug</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Legacy.Windoc.html" translate="no">Owat.Legacy.Windoc</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Legacy Backend Adapter for Windoc</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Legacy.Windoc.Importer.html" translate="no">Owat.Legacy.Windoc.Importer</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Imports legacy data from the Windoc system.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.MasterMedicationIndex.html" translate="no">Owat.MasterMedicationIndex</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Holds detail information about medications</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.MasterPatientIndex.html" translate="no">Owat.MasterPatientIndex</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>The master patient index GenServer</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Medication.html" translate="no">Owat.Medication</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Functions relating to prescriptions.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Meilisearch.html" translate="no">Owat.Meilisearch</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Provides functions to interact with the Meilisearch API.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Meilisearch.Patient.html" translate="no">Owat.Meilisearch.Patient</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Provides functions to convert a person to a patient map for the Meilisearch index.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Model.html" translate="no">Owat.Model</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Base functionality for models that get sent over the websocket connection.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Model.Condition.html" translate="no">Owat.Model.Condition</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Condition Model</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Model.Encounter.html" translate="no">Owat.Model.Encounter</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Encounter Model</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Model.LifeInfo.html" translate="no">Owat.Model.LifeInfo</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Record of information related to a person's life.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Model.SexOrGender.html" translate="no">Owat.Model.SexOrGender</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Ecto model for the sex or gender information.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Model.Task.html" translate="no">Owat.Model.Task</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Task Model</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Model.TaskTemplate.html" translate="no">Owat.Model.TaskTemplate</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Task Template Model</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Model.User.html" translate="no">Owat.Model.User</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>User model</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Permissions.html" translate="no">Owat.Permissions</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>This module exposes functions for capabilities-based permissions and also
+acts as plug for enforcing these.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Release.html" translate="no">Owat.Release</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Used for executing DB release tasks when run in production without Mix
+installed.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Repo.html" translate="no">Owat.Repo</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Roster.html" translate="no">Owat.Roster</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>The roster system of OWAT</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Roster.OpeningHours.html" translate="no">Owat.Roster.OpeningHours</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Handles opening hours</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Roster.Planery.html" translate="no">Owat.Roster.Planery</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Roster provider implementation for Planery</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Roster.Provider.html" translate="no">Owat.Roster.Provider</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A behaviour for Roster Providers.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Roster.ShiftInfo.html" translate="no">Owat.Roster.ShiftInfo</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>DTO for shift information</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Sessions.html" translate="no">Owat.Sessions</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Session handling</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Settings.html" translate="no">Owat.Settings</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Handles application settings</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Support.html" translate="no">Owat.Support</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Various utility functions</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Support.Color.html" translate="no">Owat.Support.Color</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Ecto type to represent a color in CSS hex format.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Support.DateTime.html" translate="no">Owat.Support.DateTime</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Various utility functions for DateTime</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Support.Ecto.html" translate="no">Owat.Support.Ecto</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Helper functions for handling ecto operations</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Support.Ehic.html" translate="no">Owat.Support.Ehic</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Struct and functions to work with EHIC data.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Support.GDT.html" translate="no">Owat.Support.GDT</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Module for handling GDT File</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Support.Import.html" translate="no">Owat.Support.Import</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Toolset for importing data in various formats</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Support.Plumbing.html" translate="no">Owat.Support.Plumbing</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Supporting functions to handle pipelines</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Support.Presence.html" translate="no">Owat.Support.Presence</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A module to manage presence state.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Support.SSN.html" translate="no">Owat.Support.SSN</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Support for the austrian Social Security Number (SSN).</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Support.Sorting.html" translate="no">Owat.Support.Sorting</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>This module provides helper functions for sorting models.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Terminology.Code.html" translate="no">Owat.Terminology.Code</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>This module is a custom Ecto type representing a column that is bound to a FHIR valueset.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Validation.html" translate="no">Owat.Validation</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Model Validation Functions</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.WorkIncapacity.html" translate="no">Owat.WorkIncapacity</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Business logic to work with work-incapacity conditions.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.WorkIncapacityForm.html" translate="no">Owat.WorkIncapacityForm</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Module to generate a Work Incapacity Form from a Condition resource</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Workflow.html" translate="no">Owat.Workflow</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Encounter related functions</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Workflow.OngoingEncounters.html" translate="no">Owat.Workflow.OngoingEncounters</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>GenServer to handle ongoing encounter presence.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Workflow.TaskTemplates.html" translate="no">Owat.Workflow.TaskTemplates</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Functions for handling task templates</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.Workflow.Tasks.html" translate="no">Owat.Workflow.Tasks</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Functions for handling tasks</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Owat.ZodTransformer.html" translate="no">Owat.ZodTransformer</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Transforms an OWAT AST into a Zod module.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.html" translate="no">OwatWeb</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>The entrypoint for defining your web interface, such
+as controllers, components, channels, and so on.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.ApiHelpers.html" translate="no">OwatWeb.ApiHelpers</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Common helper functions for OpenAPI response objects</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.AuthController.html" translate="no">OwatWeb.AuthController</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>This controller handles all authentication aspects.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.CallDisplayController.html" translate="no">OwatWeb.CallDisplayController</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>This controller is responsible for managing registration of and streaming to the call displays.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.ChangesetJSON.html" translate="no">OwatWeb.ChangesetJSON</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.Endpoint.html" translate="no">OwatWeb.Endpoint</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.ErrorJSON.html" translate="no">OwatWeb.ErrorJSON</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.FallbackController.html" translate="no">OwatWeb.FallbackController</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Translates controller action results into valid <a href="https://hexdocs.pm/plug/1.16.1/Plug.Conn.html"><code class="inline">Plug.Conn</code></a> responses.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.FileChannel.html" translate="no">OwatWeb.FileChannel</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Channel for files</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.Gettext.html" translate="no">OwatWeb.Gettext</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A module providing Internationalization with a gettext-based API.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.GinChannel.html" translate="no">OwatWeb.GinChannel</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Channel for GIN related events</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.GlobalChannel.html" translate="no">OwatWeb.GlobalChannel</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>This module handles the <code class="inline">global</code> topic.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.HtmlSafeSerializer.html" translate="no">OwatWeb.HtmlSafeSerializer</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>HTML-safe Websocket Serializer for Phoenix</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.LegacyController.html" translate="no">OwatWeb.LegacyController</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Controller for API endpoints concerning legacy systems.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.LiveSocket.html" translate="no">OwatWeb.LiveSocket</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>The main socket</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.MaintenanceSocket.html" translate="no">OwatWeb.MaintenanceSocket</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A socket for maintenance functionality</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.PbxController.html" translate="no">OwatWeb.PbxController</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Controller for PBX APIs</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.PersonChannel.html" translate="no">OwatWeb.PersonChannel</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>This module handles the <code class="inline">person</code> (general) and <code class="inline">person:&lt;id&gt;</code> (specific) topics.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.Presence.html" translate="no">OwatWeb.Presence</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Provides presence tracking to channels and processes.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.PublicSocket.html" translate="no">OwatWeb.PublicSocket</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Socket for public access</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.Router.html" translate="no">OwatWeb.Router</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.SchedulingChannel.AppointmentsFilter.html" translate="no">OwatWeb.SchedulingChannel.AppointmentsFilter</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A struct to keep all filtering information at one place.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.Session.html" translate="no">OwatWeb.Session</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A Plug to handle OWAT sessions</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.SessionChannel.html" translate="no">OwatWeb.SessionChannel</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Channel for functions related to the current session.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.Socket.html" translate="no">OwatWeb.Socket</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>  Aggregates permissions and channels from all channels and writes them to appropriate zod schema files.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="OwatWeb.Telemetry.html" translate="no">OwatWeb.Telemetry</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Telemetry module for the OWAT core</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="ShellHelper.html" translate="no">ShellHelper</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Helper functions to work in an attached iex session.</p></div>
+
+</div>
+
+    </div>
+  </section>
+
+
+  <section class="details-list">
+    <h2 id="mix-tasks" class="section-heading">
+  <a href="#mix-tasks" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mix Tasks</span>
+</h2>
+
+    <div class="summary">
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Mix.Tasks.Owat.BevImport.html" translate="no">mix owat.bev_import</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A mix task to import the BEV address book in dev</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Mix.Tasks.Owat.MeilisearchSync.html" translate="no">mix owat.meilisearch_sync</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A mix task to sync the Meilisearch index with the database.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Mix.Tasks.Owat.SsnClearing.html" translate="no">mix owat.ssn_clearing</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A mix task for ssn clearing of all patients</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="Mix.Tasks.Owat.WindocImport.html" translate="no">mix owat.windoc_import</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>A mix task to import Windoc data into the database.</p></div>
+
+</div>
+
+    </div>
+  </section>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="readme.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+OWAT
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="PVE.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

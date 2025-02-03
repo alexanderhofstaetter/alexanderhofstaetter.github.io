@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.34.1">
+    <meta name="project" content="PVE v0.0.1">
+
+
+    <title>Owat.Medication — PVE v0.0.1</title>
+    <link rel="stylesheet" href="dist/html-elixir-VEFCVPF3.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-FE64E7E5.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-7XSQ4GTY.js"></script>
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
+PVE
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.0.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of PVE</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+    <span translate="no">Owat.Medication</span> 
+    <small class="app-vsn" translate="no">(PVE v0.0.1)</small>
+
+  </h1>
+
+
+    <section id="moduledoc">
+<p>Functions relating to prescriptions.</p><h2 id="module-workflow-of-prescribing-medications" class="section-heading">
+  <a href="#module-workflow-of-prescribing-medications" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Workflow of prescribing medications</span>
+</h2>
+<p>A prescription may or may not start with a proposal request. A proposal
+request can be accepted by a practitioner to become a draft order. The draft
+order exists because a prescription may prescribe multiple products at once.
+Issuing the prescription will set all draft orders to active and set the
+group identifier.</p>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-types summary">
+  <h2>
+    <a href="#types">Types</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:medication_order_input/0" data-no-tooltip translate="no">medication_order_input()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:medication_request_input/0" data-no-tooltip translate="no">medication_request_input()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:order_opt/0" data-no-tooltip translate="no">order_opt()</a>
+
+      </div>
+
+    </div>
+
+</div>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#accept_request/4" data-no-tooltip translate="no">accept_request(id, encounter_id, user_id, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Accepts a request for a medication.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#accept_request_substituting/5" data-no-tooltip translate="no">accept_request_substituting(id, encounter_id, user_id, medication_id, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Accepts a request in principle but overrides the medication.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#broadcast/1" data-no-tooltip translate="no">broadcast(request)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Callback implementation for <a href="Owat.CrudUtils.html#c:broadcast/1"><code class="inline">Owat.CrudUtils.broadcast/1</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#by_id/1" data-no-tooltip translate="no">by_id(id)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#by_id/2" data-no-tooltip translate="no">by_id(id, person_id)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#for_person/1" data-no-tooltip translate="no">for_person(person_id)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#issue_prescription/2" data-no-tooltip translate="no">issue_prescription(user_id, request_ids)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>(Not implemented yet) Issues a prescription from the given request IDs.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#mark_issued/4" data-no-tooltip translate="no">mark_issued(id, encounter_id, user_id, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Marks a request as been prescribed.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#maybe_broadcast/1" data-no-tooltip translate="no">maybe_broadcast(arg)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#maybe_delete/1" data-no-tooltip translate="no">maybe_delete(struct_or_changeset)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#maybe_insert/2" data-no-tooltip translate="no">maybe_insert(changeset, preload_opts \\ [])</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#maybe_transact/1" data-no-tooltip translate="no">maybe_transact(transaction)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#maybe_transact/2" data-no-tooltip translate="no">maybe_transact(transaction, change_to_broadcast)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#maybe_update/1" data-no-tooltip translate="no">maybe_update(changeset)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#maybe_update/2" data-no-tooltip translate="no">maybe_update(changeset, preload_opts)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#maybe_update/3" data-no-tooltip translate="no">maybe_update(state, changes, preload_opts)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#order/4" data-no-tooltip translate="no">order(person_id, encounter_id, user_id, medications)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Directly order a medication, skipping the proposal part.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#reject_request/4" data-no-tooltip translate="no">reject_request(id, encounter_id, user_id, reason)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Reject a request proposal with a given reason.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#request/4" data-no-tooltip translate="no">request(person_id, encounter_id, user_id, medications)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Request a new medication.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#rescind_request/3" data-no-tooltip translate="no">rescind_request(id, person_id, user_id)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#transact/1" data-no-tooltip translate="no">transact(changesets)</a>
+
+      </div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="types" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#types">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Types</span>
+    </h1>
+    <div class="types-list">
+<section class="detail" id="t:medication_order_input/0">
+
+  <div class="detail-header">
+    <a href="#t:medication_order_input/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">medication_order_input()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> medication_order_input() ::
+  %{
+    id: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+    quantity: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(),
+    dosage: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>(),
+    note_to_provider: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()
+  }
+  | %{
+      name: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+      dose: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+      kind: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+      quantity: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>(),
+      dosage: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>(),
+      note_to_provider: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()
+    }</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:medication_request_input/0">
+
+  <div class="detail-header">
+    <a href="#t:medication_request_input/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">medication_request_input()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> medication_request_input() ::
+  %{id: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), quantity: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()}
+  | %{name: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), dose: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), kind: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), quantity: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:order_opt/0">
+
+  <div class="detail-header">
+    <a href="#t:order_opt/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">order_opt()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> order_opt() ::
+  {:dosage, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()} | {:note_to_provider, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()} | {:quantity, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="accept_request/4">
+
+    <span id="accept_request/3"></span>
+
+  <div class="detail-header">
+    <a href="#accept_request/4" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">accept_request(id, encounter_id, user_id, opts \\ [])</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> accept_request(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="#t:order_opt/0">order_opt</a>()]) ::
+  {:ok, Owat.Model.MedicationRequest.t()}
+  | {:error, :not_found | :invalid_status | <a href="Owat.CrudUtils.html#t:validation_error/0">Owat.CrudUtils.validation_error</a>()}</pre>
+
+      </div>
+
+<p>Accepts a request for a medication.</p><p>Sets the medication request to <code class="inline">order</code> intent.
+This means a prescription is about to be issued but since it may be composed
+of multiple requests this function does not issue it yet.</p><p>One may optionally supply a dosage when accepting a request.</p><p>Accepting a request requires the request to be in status <code class="inline">active</code> with intent
+<code class="inline">proposal</code>, otherwise the error <code class="inline">:invalid_status</code> will be returned.</p>
+  </section>
+</section>
+<section class="detail" id="accept_request_substituting/5">
+
+    <span id="accept_request_substituting/4"></span>
+
+  <div class="detail-header">
+    <a href="#accept_request_substituting/5" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">accept_request_substituting(id, encounter_id, user_id, medication_id, opts \\ [])</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> accept_request_substituting(
+  <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+  <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+  <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+  <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+  [<a href="#t:order_opt/0">order_opt</a>()]
+) ::
+  {:ok, Owat.Model.MedicationRequest.t()}
+  | {:error, :not_found | :invalid_status | <a href="Owat.CrudUtils.html#t:validation_error/0">Owat.CrudUtils.validation_error</a>()}</pre>
+
+      </div>
+
+<p>Accepts a request in principle but overrides the medication.</p>
+  </section>
+</section>
+<section class="detail" id="broadcast/1">
+
+  <div class="detail-header">
+    <a href="#broadcast/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">broadcast(request)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="Owat.CrudUtils.html#c:broadcast/1"><code class="inline">Owat.CrudUtils.broadcast/1</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="by_id/1">
+
+  <div class="detail-header">
+    <a href="#by_id/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">by_id(id)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> by_id(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: Owat.Model.MedicationRequest.t() | nil</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="by_id/2">
+
+  <div class="detail-header">
+    <a href="#by_id/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">by_id(id, person_id)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> by_id(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: Owat.Model.MedicationRequest.t() | nil</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="for_person/1">
+
+  <div class="detail-header">
+    <a href="#for_person/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">for_person(person_id)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> for_person(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: [Owat.Model.MedicationRequest.t()]</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="issue_prescription/2">
+
+  <div class="detail-header">
+    <a href="#issue_prescription/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">issue_prescription(user_id, request_ids)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>(Not implemented yet) Issues a prescription from the given request IDs.</p>
+  </section>
+</section>
+<section class="detail" id="mark_issued/4">
+
+    <span id="mark_issued/3"></span>
+
+  <div class="detail-header">
+    <a href="#mark_issued/4" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">mark_issued(id, encounter_id, user_id, opts \\ [])</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> mark_issued(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="#t:order_opt/0">order_opt</a>()]) ::
+  {:ok, Owat.Model.MedicationRequest.t()}
+  | {:error, :not_found | <a href="Owat.CrudUtils.html#t:validation_error/0">Owat.CrudUtils.validation_error</a>()}</pre>
+
+      </div>
+
+<p>Marks a request as been prescribed.</p>
+  </section>
+</section>
+<section class="detail" id="maybe_broadcast/1">
+
+  <div class="detail-header">
+    <a href="#maybe_broadcast/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">maybe_broadcast(arg)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="maybe_delete/1">
+
+  <div class="detail-header">
+    <a href="#maybe_delete/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">maybe_delete(struct_or_changeset)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="maybe_insert/2">
+
+    <span id="maybe_insert/1"></span>
+
+  <div class="detail-header">
+    <a href="#maybe_insert/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">maybe_insert(changeset, preload_opts \\ [])</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="maybe_transact/1">
+
+  <div class="detail-header">
+    <a href="#maybe_transact/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">maybe_transact(transaction)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="maybe_transact/2">
+
+  <div class="detail-header">
+    <a href="#maybe_transact/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">maybe_transact(transaction, change_to_broadcast)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="maybe_update/1">
+
+  <div class="detail-header">
+    <a href="#maybe_update/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">maybe_update(changeset)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="maybe_update/2">
+
+  <div class="detail-header">
+    <a href="#maybe_update/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">maybe_update(changeset, preload_opts)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="maybe_update/3">
+
+  <div class="detail-header">
+    <a href="#maybe_update/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">maybe_update(state, changes, preload_opts)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="order/4">
+
+  <div class="detail-header">
+    <a href="#order/4" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">order(person_id, encounter_id, user_id, medications)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> order(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="#t:medication_order_input/0">medication_order_input</a>()]) ::
+  {:ok, Owat.Model.MedicationRequest.t()}
+  | {:error, :not_found | <a href="Owat.CrudUtils.html#t:validation_error/0">Owat.CrudUtils.validation_error</a>()}</pre>
+
+      </div>
+
+<p>Directly order a medication, skipping the proposal part.</p>
+  </section>
+</section>
+<section class="detail" id="reject_request/4">
+
+  <div class="detail-header">
+    <a href="#reject_request/4" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">reject_request(id, encounter_id, user_id, reason)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> reject_request(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) ::
+  {:ok, Owat.Model.MedicationRequest.t()}
+  | {:error, :not_found | :invalid_status | <a href="Owat.CrudUtils.html#t:validation_error/0">Owat.CrudUtils.validation_error</a>()}</pre>
+
+      </div>
+
+<p>Reject a request proposal with a given reason.</p>
+  </section>
+</section>
+<section class="detail" id="request/4">
+
+  <div class="detail-header">
+    <a href="#request/4" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">request(person_id, encounter_id, user_id, medications)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> request(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="#t:medication_request_input/0">medication_request_input</a>()]) ::
+  {:ok, Owat.Model.MedicationRequest.t()}
+  | {:error, :not_found | <a href="Owat.CrudUtils.html#t:validation_error/0">Owat.CrudUtils.validation_error</a>()}</pre>
+
+      </div>
+
+<p>Request a new medication.</p><p>This does not issue a prescription, but merely signals a users proposal to prescribe a mediation to a person.</p>
+  </section>
+</section>
+<section class="detail" id="rescind_request/3">
+
+  <div class="detail-header">
+    <a href="#rescind_request/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">rescind_request(id, person_id, user_id)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="transact/1">
+
+  <div class="detail-header">
+    <a href="#transact/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">transact(changesets)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="PVE.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

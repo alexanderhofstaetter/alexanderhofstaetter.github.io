@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.34.1">
+    <meta name="project" content="PVE v0.0.1">
+
+
+    <title>OWAT — PVE v0.0.1</title>
+    <link rel="stylesheet" href="dist/html-elixir-VEFCVPF3.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-FE64E7E5.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-7XSQ4GTY.js"></script>
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
+PVE
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.0.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of PVE</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+
+    <span>OWAT</span>
+  </h1>
+
+<p>This is the Elixir implementation for the OWAT Core.</p><h2 id="api" class="section-heading">
+  <a href="#api" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">API</span>
+</h2>
+<p>The API consists of the following parts:</p><ul><li>Authentication Endpoints</li><li>Public REST Resources</li><li>Restricted Websocket Channels</li></ul><h3 id="authentication" class="section-heading">
+  <a href="#authentication" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Authentication</span>
+</h3>
+<p>Authentication is necessary to access restricted functionality.</p><p>The general authentication is done via an OIDC provider. Further information can be obtained at the docs
+for <a href="OwatWeb.AuthController.html"><code class="inline">OwatWeb.AuthController</code></a>.</p><h2 id="developers-information" class="section-heading">
+  <a href="#developers-information" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Developers Information</span>
+</h2>
+<p>This repository comes with a docker-compose file to set up a development environment.
+Run <code class="inline">docker compose watch</code> to start a local backend and necessary services. The backend will be available
+at <code class="inline">localhost:4000</code> and will be automatically reloaded when changes are made to the source code.
+You will have to make the AZURE_CLIENT_SECRET and EID_CLIENT_SECRET available in the environment for authentication to
+work.</p><p>To start your Phoenix server on the host machine:</p><ul><li>Run <code class="inline">mix setup</code> to install and setup dependencies and set up git hooks</li><li>Start Phoenix endpoint with <a href="https://hexdocs.pm/phoenix/1.7.14/Mix.Tasks.Phx.Server.html"><code class="inline">mix phx.server</code></a> or inside IEx with <code class="inline">iex -S mix phx.server</code></li></ul><p>Now you can visit <a href="http://localhost:4000"><code class="inline">localhost:4000</code></a> from your browser.</p><p>The dev environment must have the following setup:</p><ul><li>An env-var <code class="inline">DB_HOSTNAME</code> pointing to your DB.</li><li>The DB must have the name <code class="inline">owat_ex</code> and the user <code class="inline">owat</code>.</li><li>For SS12 operation a valid microsoap service must be deployed and its script referenced in the <code class="inline">MICROSOAP</code> env-var.</li><li>For search operation a meilisearch instance must be referenced via <code class="inline">MEILISEARCH_ENDPOINT</code> and <code class="inline">MEILISEARCH_API_KEY</code>.</li></ul><p>For convenience there exists the <a href="ShellHelper.html"><code class="inline">ShellHelper</code></a> module with a few supportive functions.</p><p>Ready to run in production? Please <a href="https://hexdocs.pm/phoenix/deployment.html">check our deployment guides</a>.</p><h3 id="learn-more" class="section-heading">
+  <a href="#learn-more" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Learn more</span>
+</h3>
+<ul><li>Official website: <a href="https://www.phoenixframework.org/">https://www.phoenixframework.org/</a></li><li>Guides: <a href="https://hexdocs.pm/phoenix/overview.html">https://hexdocs.pm/phoenix/overview.html</a></li><li>Docs: <a href="https://hexdocs.pm/phoenix">https://hexdocs.pm/phoenix</a></li><li>Forum: <a href="https://elixirforum.com/c/phoenix-forum">https://elixirforum.com/c/phoenix-forum</a></li><li>Source: <a href="https://github.com/phoenixframework/phoenix">https://github.com/phoenixframework/phoenix</a></li></ul><h3 id="git-hooks" class="section-heading">
+  <a href="#git-hooks" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Git Hooks</span>
+</h3>
+<p>We use the <a href="https://hexdocs.pm/git_hooks/readme.html">git_hooks</a> library to run pre-commit and pre-push checks.
+If you want to create a commit without running the checks, you can use <code class="inline">git commit --no-verify</code>, the same applies
+to <code class="inline">git push</code>. If you get an error message that the hooks are not executable, you can run <a href="https://hexdocs.pm/git_hooks/0.7.3/Mix.Tasks.GitHooks.Install.html"><code class="inline">mix git_hooks.install</code></a>.
+Currently, the following checks are run:</p><ul><li>pre-commit:<ul><li>mix format --check-formatted</li></ul></li><li>pre-push:<ul><li>mix dialyzer --plt</li><li>mix credo --all --ignore design</li><li>mix test</li></ul></li></ul>
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="api-reference.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+API Reference
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="PVE.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

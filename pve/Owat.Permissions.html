@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.34.1">
+    <meta name="project" content="PVE v0.0.1">
+
+
+    <title>Owat.Permissions — PVE v0.0.1</title>
+    <link rel="stylesheet" href="dist/html-elixir-VEFCVPF3.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-FE64E7E5.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-7XSQ4GTY.js"></script>
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
+PVE
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.0.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of PVE</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+    <span translate="no">Owat.Permissions</span> 
+    <small class="app-vsn" translate="no">(PVE v0.0.1)</small>
+
+  </h1>
+
+
+    <section id="moduledoc">
+<p>This module exposes functions for capabilities-based permissions and also
+acts as plug for enforcing these.</p><h2 id="module-available-permissions" class="section-heading">
+  <a href="#module-available-permissions" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Available Permissions</span>
+</h2>
+<p>These are the currently available capabilities:</p><ul><li><strong>Technical Settings</strong> (<code class="inline">:technical</code>)<ul><li>Integrations (Planery, Windoc, Devices, ...)</li><li>Call Display</li></ul></li><li><strong>Organizational Settings</strong> (<code class="inline">:organizational</code>)<ul><li>Permissions</li><li>Organization OID</li><li>E-Card / GINS Settings</li><li>Board Columns</li></ul></li><li><strong>Administrative Settings</strong> (<code class="inline">:administrative</code>)<ul><li>Healthcare Services</li><li>Scheduling</li><li>Opening Hours</li><li>Task Templates</li></ul></li><li><strong>General Access</strong> (<code class="inline">:general_access</code>)<ul><li>Enables functions on patients that are not the users own file.</li><li>Enables booking more than 1 month ahead</li><li>Disables checking for minimum booking distance</li></ul></li><li><strong>Prescribing</strong> (<code class="inline">:prescribing</code>)<ul><li>Direct ordering of medications</li><li>Accepting medication requests</li></ul></li></ul><h2 id="module-using-this-module-as-plug" class="section-heading">
+  <a href="#module-using-this-module-as-plug" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Using this module as plug</span>
+</h2>
+<p>This module can be used in two ways as authentication plug.</p><ol><li><p>As simple permission gate:</p><pre><code class="makeup elixir" translate="no"><span class="n">plug</span><span class="w"> </span><span class="nc">Owat.Permissions</span><span class="p">,</span><span class="w"> </span><span class="ss">permission</span><span class="p">:</span><span class="w"> </span><span class="ss">:technical</span></code></pre><p>This simply checks if the logged-in user has the specified permission.</p></li><li><p>As person authorization:</p><pre><code class="makeup elixir" translate="no"><span class="n">plug</span><span class="w"> </span><span class="nc">Owat.Permissions</span><span class="p">,</span><span class="w"> </span><span class="ss">person_id_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;person_id&quot;</span></code></pre><p>This will take the <code class="inline">&quot;person_id&quot;</code> key from the Conn's params and check if
+the logged-in user has this ID assigned or if the user has the
+<code class="inline">:general_access</code> permission.</p></li></ol>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-types summary">
+  <h2>
+    <a href="#types">Types</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:permission/0" data-no-tooltip translate="no">permission()</a>
+
+      </div>
+
+    </div>
+
+</div>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#all/0" data-no-tooltip translate="no">all()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns a list of all available permission atoms.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#authorize/2" data-no-tooltip translate="no">authorize(socket_or_conn, permissions_atom)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Checks if a given user has permission.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#employees/0" data-no-tooltip translate="no">employees()</a>
+
+      </div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="types" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#types">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Types</span>
+    </h1>
+    <div class="types-list">
+<section class="detail" id="t:permission/0">
+
+  <div class="detail-header">
+    <a href="#t:permission/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">permission()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> permission() ::
+  :technical
+  | :organizational
+  | :administrative
+  | :general_access
+  | :prescribing</pre>
+
+      </div>
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="all/0">
+
+  <div class="detail-header">
+    <a href="#all/0" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">all()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> all() :: [<a href="#t:permission/0">permission</a>()]</pre>
+
+      </div>
+
+<p>Returns a list of all available permission atoms.</p>
+  </section>
+</section>
+<section class="detail" id="authorize/2">
+
+  <div class="detail-header">
+    <a href="#authorize/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">authorize(socket_or_conn, permissions_atom)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> authorize(<a href="https://hexdocs.pm/plug/1.16.1/Plug.Conn.html#t:t/0">Plug.Conn.t</a>() | <a href="https://hexdocs.pm/phoenix/1.7.14/Phoenix.Socket.html#t:t/0">Phoenix.Socket.t</a>(), <a href="#t:permission/0">permission</a>()) ::
+  :ok | {:error, :permission_insufficient}</pre>
+
+          <pre translate="no"><span class="attribute">@spec</span> authorize(<a href="https://hexdocs.pm/plug/1.16.1/Plug.Conn.html#t:t/0">Plug.Conn.t</a>() | <a href="https://hexdocs.pm/phoenix/1.7.14/Phoenix.Socket.html#t:t/0">Phoenix.Socket.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) ::
+  :ok | {:error, :permission_insufficient | :not_found}</pre>
+
+      </div>
+
+<p>Checks if a given user has permission.</p><p>The user can be given by an authenticated <a href="https://hexdocs.pm/plug/1.16.1/Plug.Conn.html"><code class="inline">Plug.Conn</code></a> or <a href="https://hexdocs.pm/phoenix/1.7.14/Phoenix.Socket.html"><code class="inline">Phoenix.Socket</code></a> struct.
+The permission is either given as permission atom or the ID of a person record.</p><p>This function returns <code class="inline">:ok</code> when the user has permission, or <code class="inline">{:error, reason}</code> otherwise.
+<code class="inline">reason</code> is <code class="inline">:permission_insufficient</code> when the user does not have permission.
+When the user has <code class="inline">:general_access</code> permission and a non-existent person ID is given
+<code class="inline">:not_found</code> will be returned as <code class="inline">reason</code>.</p><h4>Example Usage (case-style)</h4><pre><code class="makeup elixir" translate="no"><span class="kd">def</span><span class="w"> </span><span class="nf">route</span><span class="p" data-group-id="4850497101-1">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="c">_params</span><span class="p" data-group-id="4850497101-1">)</span><span class="w"> </span><span class="k" data-group-id="4850497101-2">do</span><span class="w">
+  </span><span class="k">case</span><span class="w"> </span><span class="nc">Owat.Permissions</span><span class="o">.</span><span class="n">authorize</span><span class="p" data-group-id="4850497101-3">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="ss">:technical</span><span class="p" data-group-id="4850497101-3">)</span><span class="w"> </span><span class="k" data-group-id="4850497101-4">do</span><span class="w">
+    </span><span class="ss">:ok</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+      </span><span class="n">perform_technical_action</span><span class="p" data-group-id="4850497101-5">(</span><span class="n">conn</span><span class="p" data-group-id="4850497101-5">)</span><span class="w">
+
+    </span><span class="p" data-group-id="4850497101-6">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="ss">:permission_insufficient</span><span class="p" data-group-id="4850497101-6">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+      </span><span class="n">conn</span><span class="w">
+      </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_status</span><span class="p" data-group-id="4850497101-7">(</span><span class="mi">403</span><span class="p" data-group-id="4850497101-7">)</span><span class="w">
+      </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">json</span><span class="p" data-group-id="4850497101-8">(</span><span class="p" data-group-id="4850497101-9">%{</span><span class="ss">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;forbidden&quot;</span><span class="p" data-group-id="4850497101-9">}</span><span class="p" data-group-id="4850497101-8">)</span><span class="w">
+  </span><span class="k" data-group-id="4850497101-4">end</span><span class="w">
+</span><span class="k" data-group-id="4850497101-2">end</span></code></pre><h4>Example Usage (with-style)</h4><pre><code class="makeup elixir" translate="no"><span class="kd">def</span><span class="w"> </span><span class="nf">route</span><span class="p" data-group-id="7617594765-1">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="c">_params</span><span class="p" data-group-id="7617594765-1">)</span><span class="w"> </span><span class="k" data-group-id="7617594765-2">do</span><span class="w">
+  </span><span class="k">with</span><span class="w"> </span><span class="ss">:ok</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nc">Owat.Permissions</span><span class="o">.</span><span class="n">authorize</span><span class="p" data-group-id="7617594765-3">(</span><span class="n">conn</span><span class="p">,</span><span class="w"> </span><span class="ss">:technical</span><span class="p" data-group-id="7617594765-3">)</span><span class="p">,</span><span class="w">
+       </span><span class="ss">:ok</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">other_preconditions</span><span class="p" data-group-id="7617594765-4">(</span><span class="n">conn</span><span class="p" data-group-id="7617594765-4">)</span><span class="w"> </span><span class="k" data-group-id="7617594765-5">do</span><span class="w">
+      </span><span class="n">perform_technical_action</span><span class="p" data-group-id="7617594765-6">(</span><span class="n">conn</span><span class="p" data-group-id="7617594765-6">)</span><span class="w">
+  </span><span class="k" data-group-id="7617594765-5">else</span><span class="w">
+    </span><span class="p" data-group-id="7617594765-7">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="ss">:permission_insufficient</span><span class="p" data-group-id="7617594765-7">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+      </span><span class="n">conn</span><span class="w">
+      </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">put_status</span><span class="p" data-group-id="7617594765-8">(</span><span class="mi">403</span><span class="p" data-group-id="7617594765-8">)</span><span class="w">
+      </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">json</span><span class="p" data-group-id="7617594765-9">(</span><span class="p" data-group-id="7617594765-10">%{</span><span class="ss">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;forbidden&quot;</span><span class="p" data-group-id="7617594765-10">}</span><span class="p" data-group-id="7617594765-9">)</span><span class="w">
+  </span><span class="k" data-group-id="7617594765-5">end</span><span class="w">
+</span><span class="k" data-group-id="7617594765-2">end</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="employees/0">
+
+  <div class="detail-header">
+    <a href="#employees/0" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">employees()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="PVE.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

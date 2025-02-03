@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.34.1">
+    <meta name="project" content="PVE v0.0.1">
+
+
+    <title>Owat.Channel — PVE v0.0.1</title>
+    <link rel="stylesheet" href="dist/html-elixir-VEFCVPF3.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-FE64E7E5.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-7XSQ4GTY.js"></script>
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
+PVE
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.0.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of PVE</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+    <span translate="no">Owat.Channel</span> 
+    <small class="app-vsn" translate="no">(PVE v0.0.1)</small>
+
+  </h1>
+
+
+    <section id="moduledoc">
+<p>Provides functionality for OWAT resource-, presence- and rpc-channels.</p><h2 id="module-usage" class="section-heading">
+  <a href="#module-usage" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Usage</span>
+</h2>
+<p>Generally only the <a href="Owat.Channel.html"><code class="inline">Owat.Channel</code></a> module has to be used.
+It imports the <a href="#event/3"><code class="inline">event/3</code></a> macro and subsequently uses <a href="https://hexdocs.pm/phoenix/1.7.14/Phoenix.Channel.html"><code class="inline">Phoenix.Channel</code></a>.</p><pre><code class="makeup elixir" translate="no"><span class="kd">defmodule</span><span class="w"> </span><span class="nc">Owat.SomeChannel</span><span class="w"> </span><span class="k" data-group-id="4700947044-1">do</span><span class="w">
+  </span><span class="kn">use</span><span class="w"> </span><span class="nc">Owat.Channel</span><span class="w">
+
+  </span><span class="n">event</span><span class="w"> </span><span class="s">&quot;event_name&quot;</span><span class="w"> </span><span class="k" data-group-id="4700947044-2">do</span><span class="w">
+    </span><span class="p" data-group-id="4700947044-3">%{</span><span class="ss">parameter</span><span class="p">:</span><span class="w"> </span><span class="n">binding</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="ss">:string</span><span class="w"> </span><span class="err">\</span><span class="w"> </span><span class="s">&quot;default_val&quot;</span><span class="p" data-group-id="4700947044-3">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+      </span><span class="c1"># Socket is available in the body</span><span class="w">
+      </span><span class="n">reply</span><span class="p" data-group-id="4700947044-4">(</span><span class="p" data-group-id="4700947044-5">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4700947044-6">%{</span><span class="p" data-group-id="4700947044-6">}</span><span class="p" data-group-id="4700947044-5">}</span><span class="p" data-group-id="4700947044-4">)</span><span class="w">
+      </span><span class="c1"># but you can use the `ok/0` and `reply/1` macros</span><span class="w">
+      </span><span class="n">ok</span><span class="p" data-group-id="4700947044-7">(</span><span class="p" data-group-id="4700947044-7">)</span><span class="w"> </span><span class="c1"># same as reply({:ok, %{}})</span><span class="w">
+  </span><span class="k" data-group-id="4700947044-2">end</span><span class="w">
+</span><span class="k" data-group-id="4700947044-1">end</span></code></pre><h3 id="module-wildcard-topics" class="section-heading">
+  <a href="#module-wildcard-topics" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Wildcard topics</span>
+</h3>
+<p>When defining a multi-topic channel events can be limited to a channel.</p><pre><code class="makeup elixir" translate="no"><span class="c1"># in the socket module</span><span class="w">
+</span><span class="n">channel</span><span class="w"> </span><span class="s">&quot;some:*&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Owat.SomeChannel</span><span class="w">
+
+</span><span class="c1"># in the channel module</span><span class="w">
+</span><span class="n">event</span><span class="w"> </span><span class="s">&quot;event_name&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="s">&quot;some:foo&quot;</span><span class="w"> </span><span class="k" data-group-id="0788131410-1">do</span><span class="w">
+  </span><span class="p" data-group-id="0788131410-2">%{</span><span class="p" data-group-id="0788131410-2">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">reply</span><span class="p" data-group-id="0788131410-3">(</span><span class="p" data-group-id="0788131410-4">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;only in some:foo&quot;</span><span class="p" data-group-id="0788131410-4">}</span><span class="p" data-group-id="0788131410-3">)</span><span class="w">
+</span><span class="k" data-group-id="0788131410-1">end</span></code></pre><p>This also supports topic parts. The part variable is visible in the
+function body.</p><pre><code class="makeup elixir" translate="no"><span class="n">event</span><span class="w"> </span><span class="s">&quot;event_name&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="s">&quot;topic:&quot;</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="k" data-group-id="6145775101-1">do</span><span class="w">
+  </span><span class="p" data-group-id="6145775101-2">%{</span><span class="p" data-group-id="6145775101-2">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">reply</span><span class="p" data-group-id="6145775101-3">(</span><span class="p" data-group-id="6145775101-4">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;you are in: &quot;</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">part</span><span class="p" data-group-id="6145775101-4">}</span><span class="p" data-group-id="6145775101-3">)</span><span class="w">
+</span><span class="k" data-group-id="6145775101-1">end</span></code></pre><h3 id="module-permission-checks" class="section-heading">
+  <a href="#module-permission-checks" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Permission Checks</span>
+</h3>
+<p>When not providing a do-block, all channels are protected by the
+<code class="inline">:general_access</code> permission. A provided do-block is expected to check
+permissions.</p><p>Any event can also be individually secured by a permission by setting the
+<code class="inline">@permission</code> attribute with the desired atom.</p><pre><code class="makeup elixir" translate="no"><span class="na">@permission</span><span class="w"> </span><span class="ss">:technical</span><span class="w">
+</span><span class="n">event</span><span class="w"> </span><span class="s">&quot;event_name&quot;</span><span class="w"> </span><span class="k" data-group-id="4644718029-1">do</span><span class="w">
+  </span><span class="n">ok</span><span class="p" data-group-id="4644718029-2">(</span><span class="s">&quot;You have permission&quot;</span><span class="p" data-group-id="4644718029-2">)</span><span class="w">
+</span><span class="k" data-group-id="4644718029-1">end</span></code></pre><p>The macro <a href="#permission_gate/2"><code class="inline">permission_gate/2</code></a> can be used for custom business-logic dependant
+permission checks.</p><h2 id="module-parameters" class="section-heading">
+  <a href="#module-parameters" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Parameters</span>
+</h2>
+<p>Events may or may not take parameters. When the event's do-block consists
+of <code class="inline">-&gt;</code> expressions the event takes parameters. Currently only maps are
+supported as parameters. If the event does not take any parameters, any
+parameter given is ignored.</p><p>The same event may take multiple shapes of parameters. Parameter keys can be
+optional, but all required parameter keys must be present and no unspecified
+key may be given. When multiple paths overlap with optional keys the path
+with the least number of unset optional keys is taken.</p><h3 id="module-optional-parameters" class="section-heading">
+  <a href="#module-optional-parameters" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Optional parameters</span>
+</h3>
+<p>A parameter is optional when its binding is <code class="inline">_</code> or prefixed with <code class="inline">_</code>.</p><pre><code class="makeup elixir" translate="no"><span class="n">event</span><span class="w"> </span><span class="s">&quot;event_name&quot;</span><span class="w"> </span><span class="k" data-group-id="4454345015-1">do</span><span class="w">
+  </span><span class="p" data-group-id="4454345015-2">%{</span><span class="p" data-group-id="4454345015-2">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ok</span><span class="p" data-group-id="4454345015-3">(</span><span class="p" data-group-id="4454345015-3">)</span><span class="w">
+  </span><span class="p" data-group-id="4454345015-4">%{</span><span class="ss">a</span><span class="p">:</span><span class="w"> </span><span class="c">_a</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="ss">:string</span><span class="p" data-group-id="4454345015-4">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ok</span><span class="p" data-group-id="4454345015-5">(</span><span class="p" data-group-id="4454345015-5">)</span><span class="w">
+  </span><span class="p" data-group-id="4454345015-6">%{</span><span class="ss">a</span><span class="p">:</span><span class="w"> </span><span class="c">_a</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="ss">:string</span><span class="p">,</span><span class="w"> </span><span class="ss">b</span><span class="p">:</span><span class="w"> </span><span class="c">_b</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="ss">:string</span><span class="p" data-group-id="4454345015-6">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ok</span><span class="p" data-group-id="4454345015-7">(</span><span class="p" data-group-id="4454345015-7">)</span><span class="w">
+</span><span class="k" data-group-id="4454345015-1">end</span></code></pre><p>In this example when given no keys the first path is taken, because it has
+0 optional keys not present. When <code class="inline">b</code> is given, the third path is taken
+and when only <code class="inline">a</code> is given the second path is given.</p><h3 id="module-default-values" class="section-heading">
+  <a href="#module-default-values" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Default values</span>
+</h3>
+<p>A parameter, both required and optional, can have a default value. This is
+done by using the <code class="inline">\</code> operator.</p><pre><code class="makeup elixir" translate="no"><span class="n">event</span><span class="w"> </span><span class="s">&quot;event_name&quot;</span><span class="w"> </span><span class="k" data-group-id="6319424729-1">do</span><span class="w">
+  </span><span class="p" data-group-id="6319424729-2">%{</span><span class="ss">a</span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="ss">:string</span><span class="w"> </span><span class="err">\</span><span class="w"> </span><span class="s">&quot;default_val&quot;</span><span class="p" data-group-id="6319424729-2">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ok</span><span class="p" data-group-id="6319424729-3">(</span><span class="p" data-group-id="6319424729-3">)</span><span class="w">
+</span><span class="k" data-group-id="6319424729-1">end</span></code></pre><h3 id="module-top-bindings" class="section-heading">
+  <a href="#module-top-bindings" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Top bindings</span>
+</h3>
+<p>The function body can access the entire event payload by binding
+it to a variable. This is done by using the <code class="inline">:=</code> operator.</p><pre><code class="makeup elixir" translate="no"><span class="n">event</span><span class="w"> </span><span class="s">&quot;event_name&quot;</span><span class="w"> </span><span class="k" data-group-id="5261184898-1">do</span><span class="w">
+  </span><span class="p" data-group-id="5261184898-2">%{</span><span class="w">
+    </span><span class="ss">a</span><span class="p">:</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="ss">:string</span><span class="p">,</span><span class="w">
+    </span><span class="ss">b</span><span class="p">:</span><span class="w"> </span><span class="c">_b</span><span class="w"> </span><span class="o">::</span><span class="w"> </span><span class="ss">:string</span><span class="w">
+  </span><span class="p" data-group-id="5261184898-2">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+    </span><span class="c1"># if &quot;b&quot; is not passed the map will only have the key &quot;a&quot;</span><span class="w">
+    </span><span class="n">do_something</span><span class="p" data-group-id="5261184898-3">(</span><span class="n">data</span><span class="p" data-group-id="5261184898-3">)</span><span class="w">
+    </span><span class="n">reply</span><span class="p" data-group-id="5261184898-4">(</span><span class="p" data-group-id="5261184898-5">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;You have permission&quot;</span><span class="p" data-group-id="5261184898-5">}</span><span class="p" data-group-id="5261184898-4">)</span><span class="w">
+</span><span class="k" data-group-id="5261184898-1">end</span></code></pre><h3 id="module-type-hints" class="section-heading">
+  <a href="#module-type-hints" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Type hints</span>
+</h3>
+<p>The type of a parameter can be hinted using the <code class="inline">::</code> operator. The type can
+be any atom supported by Owat.ZodTransformer, as well as {:enum, [&quot;value&quot;]},
+<a href="Owat.Support.Color.html"><code class="inline">Owat.Support.Color</code></a> or a function that emits a datatype (like
+<code class="inline">Owat.Model.Person.datamap()</code>). See <a href="Owat.Model.html"><code class="inline">Owat.Model</code></a> for details on how to define
+a datatype.</p><p>These type hints are used to generate Zod schemas for the events a channel
+offers and all channels referenced using the <code class="inline">channel/2</code> macro will be
+exported to zod schema files.</p><blockquote><h4 class="info">Beware</h4><p>Type hints do not provide any input validation</p></blockquote><h2 id="module-known-limitations-to-do" class="section-heading">
+  <a href="#module-known-limitations-to-do" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Known Limitations / To Do</span>
+</h2>
+<ul><li>It is not supported to have an event that has something other than a map
+as payload.</li><li>Type hints do not provide any input validation.</li></ul>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#array/1" data-no-tooltip translate="no">array(atom)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#data_for/3" data-no-tooltip translate="no">data_for(model, opts \\ [], list)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Defines the data producer for a resource channel.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#data_for_presence/3" data-no-tooltip translate="no">data_for_presence(model, opts \\ [], list)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#enum/1" data-no-tooltip translate="no">enum(values)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#event/3" data-no-tooltip translate="no">event(name_topic, opts \\ [], list)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>This macro creates a <code class="inline">handle_in/3</code> method for a <a href="https://hexdocs.pm/phoenix/1.7.14/Phoenix.Channel.html"><code class="inline">Phoenix.Channel</code></a>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#find_best_path/2" data-no-tooltip translate="no">find_best_path(arg1, arg2)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#join_permission/1" data-no-tooltip translate="no">join_permission(atom)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#maybe_data_map/1" data-no-tooltip translate="no">maybe_data_map(error)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#ok/1" data-no-tooltip translate="no">ok(data \\ {:%{}, [], []})</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#ok_or_error/1" data-no-tooltip translate="no">ok_or_error(data)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#parse_response_type/1" data-no-tooltip translate="no">parse_response_type(fields)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#permission_gate/2" data-no-tooltip translate="no">permission_gate(hint, list)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Only execute a block when the given permission is held.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#presence/3" data-no-tooltip translate="no">presence(topic, datatype_fn, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Defines a presence channel.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#reply/1" data-no-tooltip translate="no">reply(data \\ {:%{}, [], []})</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#resource/3" data-no-tooltip translate="no">resource(topic, model, block \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Defines a resource channel.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#rpc/2" data-no-tooltip translate="no">rpc(topic, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Defines an RPC channel.</p></div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="array/1">
+
+  <div class="detail-header">
+    <a href="#array/1" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">array(atom)</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="data_for/3">
+
+    <span id="data_for/2"></span>
+
+  <div class="detail-header">
+    <a href="#data_for/3" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">data_for(model, opts \\ [], list)</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+<p>Defines the data producer for a resource channel.</p><p>This relies on the <code class="inline">produce_data_map/1</code> functions of modules using
+<a href="Owat.Model.html"><code class="inline">Owat.Model</code></a>.</p><p>The do block of the macro invocation shall produce the data to be broadcast
+as <code class="inline">data</code> event. When the produced data is a list each element will be mapped
+over the <code class="inline">produce_data_map/1</code> function of the specified module. To activate
+the list mode, the module atom shall be placed in list brackets.</p><p>When the do block returns <code class="inline">{:stop, response}</code> the client will be evicted from
+the channel.</p><h2 id="data_for/3-examples" class="section-heading">
+  <a href="#data_for/3-examples" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Examples</span>
+</h2>
+<pre><code class="makeup elixir" translate="no"><span class="n">data_for</span><span class="w"> </span><span class="nc">Resource.Module</span><span class="w"> </span><span class="k" data-group-id="7535489465-1">do</span><span class="w">
+  </span><span class="nc">Resource</span><span class="o">.</span><span class="n">acquire_one_result</span><span class="p" data-group-id="7535489465-2">(</span><span class="p" data-group-id="7535489465-2">)</span><span class="w">
+</span><span class="k" data-group-id="7535489465-1">end</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="n">data_for</span><span class="w"> </span><span class="p" data-group-id="2752186323-1">[</span><span class="nc">Resource.Module</span><span class="p" data-group-id="2752186323-1">]</span><span class="w"> </span><span class="k" data-group-id="2752186323-2">do</span><span class="w">
+  </span><span class="nc">Resource</span><span class="o">.</span><span class="n">acquire_many_results</span><span class="p" data-group-id="2752186323-3">(</span><span class="p" data-group-id="2752186323-3">)</span><span class="w">
+</span><span class="k" data-group-id="2752186323-2">end</span></code></pre><p>In case the do block needs to have access to the socket (for example to work
+discriminate against the topic) the :bind option can be used.</p><pre><code class="makeup elixir" translate="no"><span class="n">data_for</span><span class="w"> </span><span class="nc">Resource.Module</span><span class="p">,</span><span class="w"> </span><span class="ss">bind</span><span class="p">:</span><span class="w"> </span><span class="n">socket</span><span class="w"> </span><span class="k" data-group-id="3556978873-1">do</span><span class="w">
+  </span><span class="nc">Resource</span><span class="o">.</span><span class="n">acquire_one_result</span><span class="p" data-group-id="3556978873-2">(</span><span class="n">socket</span><span class="p" data-group-id="3556978873-2">)</span><span class="w">
+</span><span class="k" data-group-id="3556978873-1">end</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="data_for_presence/3">
+
+    <span id="data_for_presence/2"></span>
+
+  <div class="detail-header">
+    <a href="#data_for_presence/3" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">data_for_presence(model, opts \\ [], list)</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="enum/1">
+
+  <div class="detail-header">
+    <a href="#enum/1" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">enum(values)</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="event/3">
+
+    <span id="event/2"></span>
+
+  <div class="detail-header">
+    <a href="#event/3" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">event(name_topic, opts \\ [], list)</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+<p>This macro creates a <code class="inline">handle_in/3</code> method for a <a href="https://hexdocs.pm/phoenix/1.7.14/Phoenix.Channel.html"><code class="inline">Phoenix.Channel</code></a>.</p><pre><code class="makeup elixir" translate="no"><span class="n">event</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="k" data-group-id="6586284758-1">do</span><span class="w">
+  </span><span class="p" data-group-id="6586284758-2">%{</span><span class="p" data-group-id="6586284758-2">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="ss">:response</span><span class="w">
+</span><span class="k" data-group-id="6586284758-1">end</span><span class="w">
+
+</span><span class="c1"># results in</span><span class="w">
+
+</span><span class="kd">def</span><span class="w"> </span><span class="nf">handle_in</span><span class="p" data-group-id="6586284758-3">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6586284758-4">%</span><span class="nc" data-group-id="6586284758-4">Phoenix.Socket</span><span class="p" data-group-id="6586284758-4">{</span><span class="p" data-group-id="6586284758-4">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="6586284758-3">)</span><span class="w"> </span><span class="k" data-group-id="6586284758-5">do</span><span class="w">
+  </span><span class="c1"># Argument checks and optionally permission checks</span><span class="w">
+
+  </span><span class="k">case</span><span class="w"> </span><span class="n">params</span><span class="w"> </span><span class="k" data-group-id="6586284758-6">do</span><span class="w">
+    </span><span class="c1"># here the do-body</span><span class="w">
+    </span><span class="c1"># the params parameter is not visible</span><span class="w">
+    </span><span class="p" data-group-id="6586284758-7">%{</span><span class="p" data-group-id="6586284758-7">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="ss">:response</span><span class="w">
+  </span><span class="k" data-group-id="6586284758-6">end</span><span class="w">
+</span><span class="k" data-group-id="6586284758-5">end</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="n">event</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="s">&quot;topic&quot;</span><span class="w">
+
+</span><span class="c1"># corresponds to</span><span class="w">
+
+</span><span class="kd">def</span><span class="w"> </span><span class="nf">handle_in</span><span class="p" data-group-id="7637634676-1">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7637634676-2">%</span><span class="nc" data-group-id="7637634676-2">Phoenix.Socket</span><span class="p" data-group-id="7637634676-2">{</span><span class="ss">topic</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;topic&quot;</span><span class="p" data-group-id="7637634676-2">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="7637634676-1">)</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="find_best_path/2">
+
+  <div class="detail-header">
+    <a href="#find_best_path/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">find_best_path(arg1, arg2)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="join_permission/1">
+
+  <div class="detail-header">
+    <a href="#join_permission/1" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">join_permission(atom)</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="maybe_data_map/1">
+
+  <div class="detail-header">
+    <a href="#maybe_data_map/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">maybe_data_map(error)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="ok/1">
+
+    <span id="ok/0"></span>
+
+  <div class="detail-header">
+    <a href="#ok/1" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">ok(data \\ {:%{}, [], []})</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="ok_or_error/1">
+
+  <div class="detail-header">
+    <a href="#ok_or_error/1" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">ok_or_error(data)</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="parse_response_type/1">
+
+  <div class="detail-header">
+    <a href="#parse_response_type/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">parse_response_type(fields)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="permission_gate/2">
+
+  <div class="detail-header">
+    <a href="#permission_gate/2" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">permission_gate(hint, list)</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+<p>Only execute a block when the given permission is held.</p><pre><code class="makeup elixir" translate="no"><span class="n">permission_gate</span><span class="w"> </span><span class="ss">:technical</span><span class="w"> </span><span class="k" data-group-id="6431134603-1">do</span><span class="w">
+  </span><span class="n">ok</span><span class="p" data-group-id="6431134603-2">(</span><span class="s">&quot;you have `technical` permission.&quot;</span><span class="p" data-group-id="6431134603-2">)</span><span class="w">
+</span><span class="k" data-group-id="6431134603-1">end</span><span class="w">
+
+</span><span class="c1"># equivalent to</span><span class="w">
+
+</span><span class="k">case</span><span class="w"> </span><span class="nc">Owat.Permissions</span><span class="o">.</span><span class="n">authorize</span><span class="p" data-group-id="6431134603-3">(</span><span class="n">socket</span><span class="p">,</span><span class="w"> </span><span class="ss">:technical</span><span class="p" data-group-id="6431134603-3">)</span><span class="w"> </span><span class="k" data-group-id="6431134603-4">do</span><span class="w">
+  </span><span class="ss">:ok</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+    </span><span class="n">ok</span><span class="p" data-group-id="6431134603-5">(</span><span class="s">&quot;you have `technical` permission.&quot;</span><span class="p" data-group-id="6431134603-5">)</span><span class="w">
+
+  </span><span class="p" data-group-id="6431134603-6">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="n">err</span><span class="p" data-group-id="6431134603-6">}</span><span class="w"> </span><span class="o">-&gt;</span><span class="w">
+    </span><span class="p" data-group-id="6431134603-7">{</span><span class="ss">:reply</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6431134603-8">{</span><span class="ss">:error</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6431134603-9">%{</span><span class="ss">code</span><span class="p">:</span><span class="w"> </span><span class="n">err</span><span class="p" data-group-id="6431134603-9">}</span><span class="p" data-group-id="6431134603-8">}</span><span class="p">,</span><span class="w"> </span><span class="n">socket</span><span class="p" data-group-id="6431134603-7">}</span><span class="w">
+</span><span class="k" data-group-id="6431134603-4">end</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="presence/3">
+
+    <span id="presence/2"></span>
+
+  <div class="detail-header">
+    <a href="#presence/3" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">presence(topic, datatype_fn, opts \\ [])</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+<p>Defines a presence channel.</p><p>A presence channel sends <code class="inline">presence_state</code> and <code class="inline">presence_diff</code> events.</p><p>Resource channels must always define a corresponding <a href="#data_for_presence/3"><code class="inline">data_for_presence/3</code></a> block.
+Sending the initial data is already handled in this macro.</p>
+  </section>
+</section>
+<section class="detail" id="reply/1">
+
+    <span id="reply/0"></span>
+
+  <div class="detail-header">
+    <a href="#reply/1" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">reply(data \\ {:%{}, [], []})</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="resource/3">
+
+    <span id="resource/2"></span>
+
+  <div class="detail-header">
+    <a href="#resource/3" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">resource(topic, model, block \\ [])</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+<p>Defines a resource channel.</p><p>A resource channel sends <code class="inline">data</code> events.
+An optional do block can be supplied to perform join checks.</p><p>Resource channels must always define a corresponding <a href="#data_for/2"><code class="inline">data_for/2</code></a> block.
+Sending the initial data is already handled in this macro.</p><h2 id="resource/3-examples" class="section-heading">
+  <a href="#resource/3-examples" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Examples</span>
+</h2>
+<p>Normal channel definition with resource module. Allows all clients to join.</p><pre><code class="makeup elixir" translate="no"><span class="n">resource</span><span class="w"> </span><span class="s">&quot;channel_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Resource.Module</span></code></pre><p>Channel definition that executes code on join which can refuse the socket to
+join.</p><pre><code class="makeup elixir" translate="no"><span class="n">resource</span><span class="w"> </span><span class="s">&quot;channel_name&quot;</span><span class="p">,</span><span class="w"> </span><span class="nc">Resource.Module</span><span class="w"> </span><span class="k" data-group-id="4846263885-1">do</span><span class="w">
+  </span><span class="c1"># return :ok to allow join or a {:error, response} tuple to refuse join.</span><span class="w">
+</span><span class="k" data-group-id="4846263885-1">end</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="rpc/2">
+
+    <span id="rpc/1"></span>
+
+  <div class="detail-header">
+    <a href="#rpc/2" class="detail-link" data-no-tooltip title="Link to this macro">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this macro</span>
+    </a>
+    <h1 class="signature" translate="no">rpc(topic, opts \\ [])</h1>
+
+
+      <span class="note">(macro)</span>
+
+  </div>
+
+  <section class="docstring">
+
+<p>Defines an RPC channel.</p><p>An RPC channel does not send the <code class="inline">data</code> event.
+A channel defined with RPC does not need a corresponding call to <a href="#data_for/3"><code class="inline">data_for/3</code></a></p><h2 id="rpc/2-example" class="section-heading">
+  <a href="#rpc/2-example" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Example</span>
+</h2>
+<pre><code class="makeup elixir" translate="no"><span class="n">rpc</span><span class="w"> </span><span class="s">&quot;channel_name&quot;</span></code></pre>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="PVE.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

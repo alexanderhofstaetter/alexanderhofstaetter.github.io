@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.34.1">
+    <meta name="project" content="PVE v0.0.1">
+
+
+    <title>Owat.Elga.ZPI — PVE v0.0.1</title>
+    <link rel="stylesheet" href="dist/html-elixir-VEFCVPF3.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-FE64E7E5.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-7XSQ4GTY.js"></script>
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
+PVE
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.0.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of PVE</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+    <span translate="no">Owat.Elga.ZPI</span> 
+    <small class="app-vsn" translate="no">(PVE v0.0.1)</small>
+
+  </h1>
+
+
+    <section id="moduledoc">
+<p>Client module for ELGA Z-PI</p>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-types summary">
+  <h2>
+    <a href="#types">Types</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:demographic_query_opt/0" data-no-tooltip translate="no">demographic_query_opt()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Query options for a Z-PI demographics query.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:identifier_query/0" data-no-tooltip translate="no">identifier_query()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A <code class="inline">{system, value}</code> tuple.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:zpi_data/0" data-no-tooltip translate="no">zpi_data()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Demographics data available from Z-PI</p></div>
+
+    </div>
+
+</div>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#parse_pdq_response/1" data-no-tooltip translate="no">parse_pdq_response(xml)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#patient_demographic_query/2" data-no-tooltip translate="no">patient_demographic_query(hcp_assertion, query)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Performs a patient demographic query against the Z-PI.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#sfa_info/1" data-no-tooltip translate="no">sfa_info(map)</a>
+
+      </div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="types" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#types">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Types</span>
+    </h1>
+    <div class="types-list">
+<section class="detail" id="t:demographic_query_opt/0">
+
+  <div class="detail-header">
+    <a href="#t:demographic_query_opt/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">demographic_query_opt()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> demographic_query_opt() ::
+  :phonetic
+  | :additional_names
+  | :only_patients_alive
+  | :all_patients
+  | {:given, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:family, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:date_of_birth,
+     <a href="Owat.Support.DateTime.html#t:partial_date/0">Owat.Support.DateTime.partial_date</a>()
+     | %{
+         high: <a href="Owat.Support.DateTime.html#t:partial_date/0">Owat.Support.DateTime.partial_date</a>(),
+         low: <a href="Owat.Support.DateTime.html#t:partial_date/0">Owat.Support.DateTime.partial_date</a>()
+       }}
+  | {:gender, :M | :F | :UN}
+  | {:country, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:postal_code, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:city, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:street_name, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:number, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
+
+      </div>
+
+<p>Query options for a Z-PI demographics query.</p><p>Required parameters are:</p><ul><li><code class="inline">family</code></li></ul><p>or</p><ul><li><code class="inline">given</code></li><li><code class="inline">date_of_birth</code></li></ul><p>The parameter <code class="inline">gender</code> and address-related parameters are always optional.</p><p>The <code class="inline">date_of_birth</code> can be either a value, a partial value, a range of values
+or a range of partial values.</p><h4>Wildcard Parameters</h4><p>Wildcard search enables searching by prefix.
+The following parameters support wildcard search, where W&lt;N&gt; means that at
+least N characters have to be provided before the wildcard:</p><ul><li><code class="inline">given</code> W4</li><li><code class="inline">family</code> W4</li><li><code class="inline">postal_code</code> W2</li><li><code class="inline">city</code> W4</li><li><code class="inline">street</code> W4</li></ul><h4>Special Search Opts</h4><p>There are the following switches to tune searching by name:</p><ul><li><code class="inline">phonetic</code> - turns on phonetic matching of the <code class="inline">given</code> and <code class="inline">family</code> name.</li><li><code class="inline">additional_names</code> - causes the search by <code class="inline">given</code> and <code class="inline">family</code> to be matched
+against all known names of the patient. Default is to only search by the current name.</li><li><code class="inline">only_patients_alive</code> - only patients not marked as deceased will be returned.</li><li><code class="inline">all_patients</code> - all identities in a linked group are searched.</li></ul>
+  </section>
+</section>
+<section class="detail" id="t:identifier_query/0">
+
+  <div class="detail-header">
+    <a href="#t:identifier_query/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">identifier_query()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> identifier_query() :: {<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
+
+      </div>
+
+<p>A <code class="inline">{system, value}</code> tuple.</p>
+  </section>
+</section>
+<section class="detail" id="t:zpi_data/0">
+
+  <div class="detail-header">
+    <a href="#t:zpi_data/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">zpi_data()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> zpi_data() :: %{
+  id: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+  name: [
+    %{
+      use: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+      qualifier: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+      valid_until: <a href="Owat.Support.DateTime.html#t:partial_date/0">Owat.Support.DateTime.partial_date</a>() | nil,
+      prefix: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+      given: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+      family: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+      suffix: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil
+    }
+  ],
+  address: [
+    %{
+      foreign_id: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+      care_of: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+      additional_locator: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+      valid_until: <a href="Owat.Support.DateTime.html#t:partial_date/0">Owat.Support.DateTime.partial_date</a>() | nil,
+      country: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+      postal_code: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+      city: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+      street_name: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+      number: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+      stairway: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+      floor: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+      apartment: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil
+    }
+  ],
+  deceased: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(),
+  date_of_birth: <a href="Owat.Support.DateTime.html#t:partial_date/0">Owat.Support.DateTime.partial_date</a>() | nil,
+  date_of_death: <a href="Owat.Support.DateTime.html#t:partial_date/0">Owat.Support.DateTime.partial_date</a>() | nil,
+  citizenship: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+  multiple_birth: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(),
+  multiple_birth_ord: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">integer</a>() | nil,
+  ssn: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil,
+  gender: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+  bpk: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | nil
+}</pre>
+
+      </div>
+
+<p>Demographics data available from Z-PI</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="parse_pdq_response/1">
+
+  <div class="detail-header">
+    <a href="#parse_pdq_response/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">parse_pdq_response(xml)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="patient_demographic_query/2">
+
+  <div class="detail-header">
+    <a href="#patient_demographic_query/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">patient_demographic_query(hcp_assertion, query)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> patient_demographic_query(
+  <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+  <a href="#t:identifier_query/0">identifier_query</a>() | [<a href="#t:demographic_query_opt/0">demographic_query_opt</a>()]
+) ::
+  {:ok, [<a href="#t:zpi_data/0">zpi_data</a>()]}
+  | {:error,
+     <a href="https://hexdocs.pm/httpoison/2.2.1/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a>()
+     | <a href="https://hexdocs.pm/httpoison/2.2.1/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>()
+     | <a href="Owat.Elga.ZPI.Error.html#t:t/0">Owat.Elga.ZPI.Error.t</a>()
+     | {:multiple, [<a href="Owat.Elga.ZPI.Error.html#t:t/0">Owat.Elga.ZPI.Error.t</a>()]}
+     | :no_organization_oid
+     | {:invalid_opt, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}}</pre>
+
+      </div>
+
+<p>Performs a patient demographic query against the Z-PI.</p><p>Either performs a query by <code class="inline">LivingSubject.id</code> when given an identifier query
+tuple or a query by demographic data.
+For demographic query options see <a href="#t:demographic_query_opt/0"><code class="inline">demographic_query_opt/0</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="sfa_info/1">
+
+  <div class="detail-header">
+    <a href="#sfa_info/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">sfa_info(map)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="PVE.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

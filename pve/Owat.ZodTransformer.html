@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.34.1">
+    <meta name="project" content="PVE v0.0.1">
+
+
+    <title>Owat.ZodTransformer — PVE v0.0.1</title>
+    <link rel="stylesheet" href="dist/html-elixir-VEFCVPF3.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-FE64E7E5.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-7XSQ4GTY.js"></script>
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
+PVE
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.0.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of PVE</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+    <span translate="no">Owat.ZodTransformer</span> 
+    <small class="app-vsn" translate="no">(PVE v0.0.1)</small>
+
+  </h1>
+
+
+    <section id="moduledoc">
+<p>Transforms an OWAT AST into a Zod module.</p>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-types summary">
+  <h2>
+    <a href="#types">Types</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:array/0" data-no-tooltip translate="no">array()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>An array in zod</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:assign/0" data-no-tooltip translate="no">assign()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A typescript assign statement</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:ast/0" data-no-tooltip translate="no">ast()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A Zod AST</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:base_type/0" data-no-tooltip translate="no">base_type()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A string in zod</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:enum/0" data-no-tooltip translate="no">enum()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>An enum consisting of the name of the enum and a list of the enum's values.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:enum_field/0" data-no-tooltip translate="no">enum_field()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>An enum field of an object in zod</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:extended/0" data-no-tooltip translate="no">extended()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>An extended object in zod</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:field/0" data-no-tooltip translate="no">field()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>An object field in zod</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:import/0" data-no-tooltip translate="no">import()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>An import statement containing the name of the module to import and the names of the exports or types to import.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:infer/0" data-no-tooltip translate="no">infer()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>An inferred type in zod</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:interface/0" data-no-tooltip translate="no">interface()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A typescript interface defintion</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:interface_field/0" data-no-tooltip translate="no">interface_field()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>  An interface field</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:literal/0" data-no-tooltip translate="no">literal()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A literal in zod</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:modifier/0" data-no-tooltip translate="no">modifier()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A modifier in zod</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:object/0" data-no-tooltip translate="no">object()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>An object in zod</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:schema/0" data-no-tooltip translate="no">schema()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A reference to a previously defined or imported schema</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:union/0" data-no-tooltip translate="no">union()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A union in zod</p></div>
+
+    </div>
+
+</div>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#base_name/1" data-no-tooltip translate="no">base_name(module)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Produce the base name of a module.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#dcfirst/1" data-no-tooltip translate="no">dcfirst(arg)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#embedded_name/1" data-no-tooltip translate="no">embedded_name(module)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#mapping_name/2" data-no-tooltip translate="no">mapping_name(module, datatype_fn)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#schema_name/1" data-no-tooltip translate="no">schema_name(name)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Produce the schema name of a module.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#transform/1" data-no-tooltip translate="no">transform(list)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Takes an AST node and returns a string containing the Zod schema definition as typescript code.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#transform_ast/1" data-no-tooltip translate="no">transform_ast(ast)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Takes an AST and returns a string containing the Zod schema definition as typescript code.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#type_name/2" data-no-tooltip translate="no">type_name(module, datatype_fn)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#ucfirst/1" data-no-tooltip translate="no">ucfirst(arg)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#write_module/2" data-no-tooltip translate="no">write_module(name, ast)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Transforms an ast to zod schema definitions and writes them to a file using the given name.</p></div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="types" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#types">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Types</span>
+    </h1>
+    <div class="types-list">
+<section class="detail" id="t:array/0">
+
+  <div class="detail-header">
+    <a href="#t:array/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">array()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> array() :: {:array, <a href="#t:base_type/0">base_type</a>() | <a href="#t:schema/0">schema</a>()}</pre>
+
+      </div>
+
+<p>An array in zod</p>
+  </section>
+</section>
+<section class="detail" id="t:assign/0">
+
+  <div class="detail-header">
+    <a href="#t:assign/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">assign()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> assign() :: {:assign, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="#t:base_type/0">base_type</a>() | <a href="#t:schema/0">schema</a>()}</pre>
+
+      </div>
+
+<p>A typescript assign statement</p><p>(Useful for referencing a schema in a different module)</p>
+  </section>
+</section>
+<section class="detail" id="t:ast/0">
+
+  <div class="detail-header">
+    <a href="#t:ast/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">ast()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> ast() :: [<a href="#t:import/0">import</a>() | <a href="#t:enum/0">enum</a>() | <a href="#t:object/0">object</a>() | <a href="#t:infer/0">infer</a>() | <a href="#t:interface/0">interface</a>()]</pre>
+
+      </div>
+
+<p>A Zod AST</p>
+  </section>
+</section>
+<section class="detail" id="t:base_type/0">
+
+  <div class="detail-header">
+    <a href="#t:base_type/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">base_type()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> base_type() ::
+  :string
+  | :number
+  | :integer
+  | :boolean
+  | :date
+  | :datetime
+  | :record
+  | :any
+  | :void
+  | nil
+  | <a href="#t:array/0">array</a>()
+  | <a href="#t:literal/0">literal</a>()</pre>
+
+      </div>
+
+<p>A string in zod</p>
+  </section>
+</section>
+<section class="detail" id="t:enum/0">
+
+  <div class="detail-header">
+    <a href="#t:enum/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">enum()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> enum() :: {:enum, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()]}</pre>
+
+      </div>
+
+<p>An enum consisting of the name of the enum and a list of the enum's values.</p>
+  </section>
+</section>
+<section class="detail" id="t:enum_field/0">
+
+  <div class="detail-header">
+    <a href="#t:enum_field/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">enum_field()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> enum_field() :: {:enum, [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()]}</pre>
+
+      </div>
+
+<p>An enum field of an object in zod</p>
+  </section>
+</section>
+<section class="detail" id="t:extended/0">
+
+  <div class="detail-header">
+    <a href="#t:extended/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">extended()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> extended() ::
+  {:extended, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="#t:schema/0">schema</a>(), [<a href="#t:field/0">field</a>() | <a href="#t:object/0">object</a>()], [<a href="#t:modifier/0">modifier</a>()]}</pre>
+
+      </div>
+
+<p>An extended object in zod</p>
+  </section>
+</section>
+<section class="detail" id="t:field/0">
+
+  <div class="detail-header">
+    <a href="#t:field/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">field()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> field() :: {<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="#t:base_type/0">base_type</a>() | <a href="#t:enum_field/0">enum_field</a>() | <a href="#t:schema/0">schema</a>(), [<a href="#t:modifier/0">modifier</a>()]}</pre>
+
+      </div>
+
+<p>An object field in zod</p>
+  </section>
+</section>
+<section class="detail" id="t:import/0">
+
+  <div class="detail-header">
+    <a href="#t:import/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">import()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> import() ::
+  {:import, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+   [
+     {<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+     | {<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+     | {:type, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+     | {:type, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+   ]}</pre>
+
+      </div>
+
+<p>An import statement containing the name of the module to import and the names of the exports or types to import.</p><p> represents a type import.
+{String.t, String.t} represents an import renamed from the original name to a new name.
+{:type, String.t, String.t} represents a type import renamed from the original name to a new name.</p>
+  </section>
+</section>
+<section class="detail" id="t:infer/0">
+
+  <div class="detail-header">
+    <a href="#t:infer/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">infer()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> infer() :: {:infer, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="#t:schema/0">schema</a>()}</pre>
+
+      </div>
+
+<p>An inferred type in zod</p>
+  </section>
+</section>
+<section class="detail" id="t:interface/0">
+
+  <div class="detail-header">
+    <a href="#t:interface/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">interface()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> interface() ::
+  {:interface, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="#t:interface_field/0">interface_field</a>()], <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:interface, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="#t:interface_field/0">interface_field</a>()]}</pre>
+
+      </div>
+
+<p>A typescript interface defintion</p><p>The last argument in the 4-tuple is a referene to the parent interface</p>
+  </section>
+</section>
+<section class="detail" id="t:interface_field/0">
+
+  <div class="detail-header">
+    <a href="#t:interface_field/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">interface_field()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> interface_field() ::
+  {<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | :void | <a href="#t:schema/0">schema</a>() | <a href="#t:array/0">array</a>() | [<a href="#t:interface_field/0">interface_field</a>()]}</pre>
+
+      </div>
+
+<p>  An interface field</p>
+  </section>
+</section>
+<section class="detail" id="t:literal/0">
+
+  <div class="detail-header">
+    <a href="#t:literal/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">literal()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> literal() :: {:literal, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
+
+      </div>
+
+<p>A literal in zod</p>
+  </section>
+</section>
+<section class="detail" id="t:modifier/0">
+
+  <div class="detail-header">
+    <a href="#t:modifier/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">modifier()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> modifier() :: :optional | :nullable | :strict | :partial</pre>
+
+      </div>
+
+<p>A modifier in zod</p>
+  </section>
+</section>
+<section class="detail" id="t:object/0">
+
+  <div class="detail-header">
+    <a href="#t:object/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">object()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> object() :: {:object, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="#t:field/0">field</a>() | <a href="#t:object/0">object</a>()], [<a href="#t:modifier/0">modifier</a>()]}</pre>
+
+      </div>
+
+<p>An object in zod</p>
+  </section>
+</section>
+<section class="detail" id="t:schema/0">
+
+  <div class="detail-header">
+    <a href="#t:schema/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">schema()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> schema() :: {:schema, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
+
+      </div>
+
+<p>A reference to a previously defined or imported schema</p>
+  </section>
+</section>
+<section class="detail" id="t:union/0">
+
+  <div class="detail-header">
+    <a href="#t:union/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">union()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> union() :: {:union, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="#t:base_type/0">base_type</a>() | <a href="#t:schema/0">schema</a>()]}</pre>
+
+      </div>
+
+<p>A union in zod</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="base_name/1">
+
+  <div class="detail-header">
+    <a href="#base_name/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">base_name(module)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> base_name(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">module</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+
+      </div>
+
+<p>Produce the base name of a module.</p><p>This is the last part of the module atom.</p><h2 id="base_name/1-examples" class="section-heading">
+  <a href="#base_name/1-examples" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Examples</span>
+</h2>
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="nc">Zod</span><span class="o">.</span><span class="n">base_name</span><span class="p" data-group-id="3728803055-1">(</span><span class="nc">Foo.Bar.Baz</span><span class="p" data-group-id="3728803055-1">)</span><span class="w">
+</span><span class="s">&quot;Baz&quot;</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="dcfirst/1">
+
+  <div class="detail-header">
+    <a href="#dcfirst/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">dcfirst(arg)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="embedded_name/1">
+
+  <div class="detail-header">
+    <a href="#embedded_name/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">embedded_name(module)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="mapping_name/2">
+
+  <div class="detail-header">
+    <a href="#mapping_name/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">mapping_name(module, datatype_fn)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="schema_name/1">
+
+  <div class="detail-header">
+    <a href="#schema_name/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">schema_name(name)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> schema_name(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">module</a>() | <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+
+      </div>
+
+<p>Produce the schema name of a module.</p><p>This is the base name, lowercase first character, with &quot;Schema&quot; as suffix.</p><h2 id="schema_name/1-examples" class="section-heading">
+  <a href="#schema_name/1-examples" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Examples</span>
+</h2>
+<pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="nc">Zod</span><span class="o">.</span><span class="n">schema_name</span><span class="p" data-group-id="2171553581-1">(</span><span class="nc">Foo.Bar.Baz</span><span class="p" data-group-id="2171553581-1">)</span><span class="w">
+</span><span class="s">&quot;bazSchema&quot;</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="transform/1">
+
+  <div class="detail-header">
+    <a href="#transform/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">transform(list)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> transform(<a href="#t:import/0">import</a>() | <a href="#t:base_type/0">base_type</a>() | <a href="#t:enum/0">enum</a>() | <a href="#t:object/0">object</a>() | <a href="#t:infer/0">infer</a>() | <a href="#t:interface/0">interface</a>()) ::
+  <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">iodata</a>()</pre>
+
+      </div>
+
+<p>Takes an AST node and returns a string containing the Zod schema definition as typescript code.</p>
+  </section>
+</section>
+<section class="detail" id="transform_ast/1">
+
+  <div class="detail-header">
+    <a href="#transform_ast/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">transform_ast(ast)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> transform_ast(<a href="#t:ast/0">ast</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+
+      </div>
+
+<p>Takes an AST and returns a string containing the Zod schema definition as typescript code.</p>
+  </section>
+</section>
+<section class="detail" id="type_name/2">
+
+  <div class="detail-header">
+    <a href="#type_name/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">type_name(module, datatype_fn)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="ucfirst/1">
+
+  <div class="detail-header">
+    <a href="#ucfirst/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">ucfirst(arg)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="write_module/2">
+
+  <div class="detail-header">
+    <a href="#write_module/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">write_module(name, ast)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> write_module(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="#t:ast/0">ast</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
+
+      </div>
+
+<p>Transforms an ast to zod schema definitions and writes them to a file using the given name.</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="PVE.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

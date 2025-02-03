@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.34.1">
+    <meta name="project" content="PVE v0.0.1">
+
+
+    <title>OwatWeb.GlobalChannel — PVE v0.0.1</title>
+    <link rel="stylesheet" href="dist/html-elixir-VEFCVPF3.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-FE64E7E5.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-7XSQ4GTY.js"></script>
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
+PVE
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.0.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of PVE</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+    <span translate="no">OwatWeb.GlobalChannel</span> 
+    <small class="app-vsn" translate="no">(PVE v0.0.1)</small>
+
+  </h1>
+
+
+    <section id="moduledoc">
+<p>This module handles the <code class="inline">global</code> topic.</p><p>Any socket is authorized for this topic.</p><p>The following events exist:</p><ul><li><code class="inline">message</code></li></ul><h2 id="module-unmatched-events" class="section-heading">
+  <a href="#module-unmatched-events" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Unmatched events</span>
+</h2>
+<p>Any unmatched event gets an unicast reply with status <code class="inline">error</code> informing the sender of the non-existence of this event type.</p><p>The response always contains the <code class="inline">type: &quot;unmatched_event&quot;</code> and the information which event was received.</p><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="8713944216-1">%{</span><span class="w">
+  </span><span class="ss">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;unmatched_event&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="ss">event</span><span class="p">:</span><span class="w"> </span><span class="n">event</span><span class="w">
+</span><span class="p" data-group-id="8713944216-1">}</span></code></pre><h2 id="module-bidirectional-events" class="section-heading">
+  <a href="#module-bidirectional-events" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Bidirectional Events</span>
+</h2>
+<p>These events can be sent to the server and can be received unsolicited from the server.</p><h3 id="module-message-event" class="section-heading">
+  <a href="#module-message-event" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">message</code> Event</span>
+</h3>
+<table><tbody><tr><td style="text-align: left;"><strong>Payload</strong></td><td style="text-align: left;"><a href="#module-smallmessage"><code class="inline">SmallMessage</code></a></td></tr><tr><td style="text-align: left;"><strong>Permissions</strong></td><td style="text-align: left;">Anyone</td></tr></tbody></table><p>The message event will be broadcasted as is to all subscribers.</p><h2 id="module-upstream-events" class="section-heading">
+  <a href="#module-upstream-events" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Upstream Events</span>
+</h2>
+<p>The following events will never be sent by the server.</p><h3 id="module-search-event" class="section-heading">
+  <a href="#module-search-event" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">search</code> Event</span>
+</h3>
+<p>This event is for searching in the cores search index.</p><table><tbody><tr><td style="text-align: left;"><strong>Payload</strong></td><td style="text-align: left;"><a href="#module-searchquery"><code class="inline">SearchQuery</code></a></td></tr><tr><td style="text-align: left;"><strong>Permissions</strong></td><td style="text-align: left;">Anyone</td></tr></tbody></table><p>The sender will get a reply with the search results.</p><h4>OK-Reply</h4><p>The reply with status <code class="inline">ok</code> contains the search results.</p><pre><code class="json">{
+  &quot;estimatedTotalHits&quot;: 0,
+  &quot;hits&quot;: [ PersonSummary ],
+  &quot;limit&quot;: 0,
+  &quot;offset&quot;: 0
+}</code></pre><h2 id="module-data-types" class="section-heading">
+  <a href="#module-data-types" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Data types</span>
+</h2>
+<h3 id="module-personsummary" class="section-heading">
+  <a href="#module-personsummary" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">PersonSummary</span>
+</h3>
+<pre><code class="json">{
+  &quot;address&quot;: &quot;string&quot;,
+  &quot;emails&quot;: [ &quot;string:email&quot; ],
+  &quot;family&quot;: &quot;string&quot;,
+  &quot;given&quot;: &quot;string&quot;,
+  &quot;id&quot;: 0,
+  &quot;phones&quot;: [ &quot;string:e164&quot; ],
+  &quot;ssn&quot;: &quot;string&quot;
+}</code></pre><h3 id="module-smallmessage" class="section-heading">
+  <a href="#module-smallmessage" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">SmallMessage</span>
+</h3>
+<p>All fields are required.</p><pre><code class="json">{
+  &quot;message&quot;: &quot;string&quot;,
+}</code></pre>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#child_spec/1" data-no-tooltip translate="no">child_spec(init_arg)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#handle_in/3" data-no-tooltip translate="no">handle_in(event, params, socket)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Handles events sent to this channel.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#join/3" data-no-tooltip translate="no">join(binary, msg, socket)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Joins a given socket into the global channel.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#start_link/1" data-no-tooltip translate="no">start_link(triplet)</a>
+
+      </div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="child_spec/1">
+
+  <div class="detail-header">
+    <a href="#child_spec/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">child_spec(init_arg)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="handle_in/3">
+
+  <div class="detail-header">
+    <a href="#handle_in/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">handle_in(event, params, socket)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Handles events sent to this channel.</p>
+  </section>
+</section>
+<section class="detail" id="join/3">
+
+  <div class="detail-header">
+    <a href="#join/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">join(binary, msg, socket)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Joins a given socket into the global channel.</p>
+  </section>
+</section>
+<section class="detail" id="start_link/1">
+
+  <div class="detail-header">
+    <a href="#start_link/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">start_link(triplet)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="PVE.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

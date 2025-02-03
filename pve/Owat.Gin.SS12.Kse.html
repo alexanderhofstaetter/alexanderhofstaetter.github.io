@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.34.1">
+    <meta name="project" content="PVE v0.0.1">
+
+
+    <title>Owat.Gin.SS12.Kse — PVE v0.0.1</title>
+    <link rel="stylesheet" href="dist/html-elixir-VEFCVPF3.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-FE64E7E5.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-7XSQ4GTY.js"></script>
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
+PVE
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.0.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of PVE</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+    <span translate="no">Owat.Gin.SS12.Kse</span> 
+    <small class="app-vsn" translate="no">(PVE v0.0.1)</small>
+
+  </h1>
+
+
+    <section id="moduledoc">
+<p>Consult Service</p>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-types summary">
+  <h2>
+    <a href="#types">Types</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:consult_opt/0" data-no-tooltip translate="no">consult_opt()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Creating a consult may take the following options</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:search_criterion/0" data-no-tooltip translate="no">search_criterion()</a>
+
+      </div>
+
+    </div>
+
+</div>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#cancel_consult/4" data-no-tooltip translate="no">cancel_consult(dialog, transaction_id, consult_id, consult_version)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#change_case_code/5" data-no-tooltip translate="no">change_case_code(dialog, transaction_id, consult_id, consult_version, new_case_code)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#get_consult_data/3" data-no-tooltip translate="no">get_consult_data(dialog, transaction_id, foreign_ids)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#get_consult_data/5" data-no-tooltip translate="no">get_consult_data(dialog, transaction_id, search_criteria, type, sort)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#reactivate_consult/4" data-no-tooltip translate="no">reactivate_consult(dialog, transaction_id, consult_id, consult_version)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#request!/2" data-no-tooltip translate="no">request!(operation, arguments)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#request!/3" data-no-tooltip translate="no">request!(operation, arguments, transaction_id)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#send_supplemental_answer/4" data-no-tooltip translate="no">send_supplemental_answer(dialog, transaction_id, supplemental_id, answer_value)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#submit_consult/6" data-no-tooltip translate="no">submit_consult(dialog, transaction_id, card_token, case_code, field_code, opts \\ [])</a>
+
+      </div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="types" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#types">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Types</span>
+    </h1>
+    <div class="types-list">
+<section class="detail" id="t:consult_opt/0">
+
+  <div class="detail-header">
+    <a href="#t:consult_opt/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">consult_opt()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> consult_opt() ::
+  {:ssn, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:provider, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:claim, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:afterwards, %{date: <a href="https://hexdocs.pm/elixir/Date.html#t:t/0">Date.t</a>(), reason: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}}
+  | {:offline, <a href="https://hexdocs.pm/elixir/Date.html#t:t/0">Date.t</a>()}
+  | {:surrogate, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
+
+      </div>
+
+<p>Creating a consult may take the following options:</p><ul><li><code class="inline">:ssn</code> - specifies the SSN to perform the consult for</li><li><code class="inline">:provider</code> - specifies a provider in case of a previous claims fault</li><li><code class="inline">:claim</code> - specifies a claims ID in case of a previous claims fault</li><li><code class="inline">:afterwards</code> - a map specifying the :date of consult and the
+:reason for retroactive registering (this would be a tuple,  but then it
+would not be json serializable)</li><li><code class="inline">:offline</code> - specifies that this consult was recorded offline and is now
+being retried. This takes the date of the consult.</li><li><code class="inline">:surrogate</code> - specifies a surrogate voucher code</li></ul><p>When specifying both <code class="inline">:offline</code> and <code class="inline">:afterwards</code> the dates must be the same.
+If they are not, the last specified date wins.</p>
+  </section>
+</section>
+<section class="detail" id="t:search_criterion/0">
+
+  <div class="detail-header">
+    <a href="#t:search_criterion/0" class="detail-link" data-no-tooltip title="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature" translate="no">search_criterion()</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> search_criterion() ::
+  {:field_code, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:since, <a href="https://hexdocs.pm/elixir/Date.html#t:t/0">Date.t</a>()}
+  | {:until, <a href="https://hexdocs.pm/elixir/Date.html#t:t/0">Date.t</a>()}
+  | {:case_code, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:type, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:practice_id, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:ssn, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}
+  | {:provider_code, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="cancel_consult/4">
+
+  <div class="detail-header">
+    <a href="#cancel_consult/4" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">cancel_consult(dialog, transaction_id, consult_id, consult_version)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="change_case_code/5">
+
+  <div class="detail-header">
+    <a href="#change_case_code/5" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">change_case_code(dialog, transaction_id, consult_id, consult_version, new_case_code)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="get_consult_data/3">
+
+  <div class="detail-header">
+    <a href="#get_consult_data/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">get_consult_data(dialog, transaction_id, foreign_ids)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> get_consult_data(<a href="Owat.Gin.SS12.Dialog.html#t:t/0">Owat.Gin.SS12.Dialog.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()]) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()} | {:fault, <a href="Owat.Gin.SS12.html#t:fault_info/0">Owat.Gin.SS12.fault_info</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="get_consult_data/5">
+
+  <div class="detail-header">
+    <a href="#get_consult_data/5" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">get_consult_data(dialog, transaction_id, search_criteria, type, sort)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> get_consult_data(
+  <a href="Owat.Gin.SS12.Dialog.html#t:t/0">Owat.Gin.SS12.Dialog.t</a>(),
+  <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(),
+  [<a href="#t:search_criterion/0">search_criterion</a>()],
+  :all | :modifiable | :cancelled,
+  :date | :case | :field | :provider | :patient
+) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()}
+  | {:fault, <a href="Owat.Gin.SS12.html#t:fault_info/0">Owat.Gin.SS12.fault_info</a>()}
+  | {:error, :invalid_serach_criterion | :invalid_type | :invalid_sort}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="reactivate_consult/4">
+
+  <div class="detail-header">
+    <a href="#reactivate_consult/4" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">reactivate_consult(dialog, transaction_id, consult_id, consult_version)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="request!/2">
+
+  <div class="detail-header">
+    <a href="#request!/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">request!(operation, arguments)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="request!/3">
+
+  <div class="detail-header">
+    <a href="#request!/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">request!(operation, arguments, transaction_id)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="send_supplemental_answer/4">
+
+  <div class="detail-header">
+    <a href="#send_supplemental_answer/4" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">send_supplemental_answer(dialog, transaction_id, supplemental_id, answer_value)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="submit_consult/6">
+
+    <span id="submit_consult/5"></span>
+
+  <div class="detail-header">
+    <a href="#submit_consult/6" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">submit_consult(dialog, transaction_id, card_token, case_code, field_code, opts \\ [])</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="PVE.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

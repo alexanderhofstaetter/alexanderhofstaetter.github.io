@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.34.1">
+    <meta name="project" content="PVE v0.0.1">
+
+
+    <title>Owat.Gin.Consult — PVE v0.0.1</title>
+    <link rel="stylesheet" href="dist/html-elixir-VEFCVPF3.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
+    <script src="dist/sidebar_items-FE64E7E5.js"></script>
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-7XSQ4GTY.js"></script>
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+      <div>
+        <a href="readme.html" class="sidebar-projectName" translate="no">
+PVE
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.0.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+        <li>
+          <button id="modules-list-tab-button" role="tab" data-type="modules" aria-controls="modules-tab-panel" aria-selected="false" tabindex="-1">
+            Modules
+          </button>
+        </li>
+
+
+        <li>
+          <button id="tasks-list-tab-button" role="tab" data-type="tasks" aria-controls="tasks-tab-panel" aria-selected="false" tabindex="-1">
+            <span translate="no">Mix</span> Tasks
+          </button>
+        </li>
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+    <div id="modules-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="modules-list-tab-button" hidden>
+      <ul id="modules-full-list" class="full-list"></ul>
+    </div>
+
+
+    <div id="tasks-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="tasks-list-tab-button" hidden>
+      <ul id="tasks-full-list" class="full-list"></ul>
+    </div>
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of PVE</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
+
+    <span translate="no">Owat.Gin.Consult</span> 
+    <small class="app-vsn" translate="no">(PVE v0.0.1)</small>
+
+  </h1>
+
+
+    <section id="moduledoc">
+<p>Module for consult operations.</p><p>Generally speaking a consult is a type of voucher that is obtained by
+submitting a request to the insurance provider. This voucher has to be shown
+when billing services to the provider as a proof of insurance.</p><p>There are complex rules as to when a consult may be obtained depending on the
+field of practice (often passed via a parameter <code class="inline">field_code</code>), on the case of
+treatment (often passed via a parameter <code class="inline">case_code</code>), whether the patient
+already has pending vouchers with other healthcare providers and so on.</p><p>For the purposes of this module a consult may have a <em>state</em> that can take
+one of the following values:</p><ul><li><code class="inline">PENDING</code> indicates that the consult is requested but the request is yet
+in-flight.</li><li><code class="inline">ACTIVE</code> indicates that the consult is a valid, registered voucher</li><li><code class="inline">CANCELLED</code> indicates that the consult is a registered voucher that has
+since been cancelled.</li><li><code class="inline">FAULT</code> indicates that the consult was requested, but the voucher could not
+be issued due to either business or technical reasons</li><li><code class="inline">CLAIMS</code>, <code class="inline">EXTERN</code> and <code class="inline">SURROGATE_VOUCHER</code> are special cases of <code class="inline">FAULT</code>
+where the underlying business reason is clearly specified and resolvable</li><li><code class="inline">ERROR</code> indicates that the consult was requested, but it failed to be
+submitted to the upstream services for technical reasons (like network
+outage)</li></ul><h2 id="module-happy-path-lifecycle" class="section-heading">
+  <a href="#module-happy-path-lifecycle" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Happy-Path Lifecycle</span>
+</h2>
+<p>A normal consult in the best conditions takes the following life-cycle:</p><ul><li>Submission either via <code class="inline">automatic/2</code> or <a href="#manual/5"><code class="inline">manual/5</code></a></li><li>Best case it goes from <code class="inline">PENDING</code> directly to <code class="inline">ACTIVE</code></li><li>Second best case an easy to resolve <code class="inline">CLAIMS</code> state<ul><li>In this case the <code class="inline">CLAIMS</code> issue is resolved via <a href="#supply_claim/2"><code class="inline">supply_claim/2</code></a></li></ul></li><li>Done. A nice consult in <code class="inline">ACTIVE</code> state.<ul><li>May have its case code changed via <a href="#change_case/2"><code class="inline">change_case/2</code></a></li><li>May be cancelled via <a href="#cancel/1"><code class="inline">cancel/1</code></a></li><li>May have supplemental information that must be answered via a call to
+<a href="#send_supplemental_answer/3"><code class="inline">send_supplemental_answer/3</code></a></li></ul></li></ul><h2 id="module-error-resolving" class="section-heading">
+  <a href="#module-error-resolving" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Error resolving</span>
+</h2>
+<p>The most common error state besides <code class="inline">CLAIMS</code> is <code class="inline">FAULT</code>. A fault occurs
+mostly for business rule reasons and is resolved by calling <a href="#retry/2"><code class="inline">retry/2</code></a> and
+supplying information to conform to the business rules.</p><ul><li>Submission either via <code class="inline">automatic/2</code> or <a href="#manual/5"><code class="inline">manual/5</code></a></li><li>The consult enters <code class="inline">FAULT</code> state</li><li>Retry by using <a href="#retry/2"><code class="inline">retry/2</code></a> until the state changes to <code class="inline">ACTIVE</code></li></ul>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#answer_supplemental_consult/1" data-no-tooltip translate="no">answer_supplemental_consult(request)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#automatic/1" data-no-tooltip translate="no">automatic(encounter)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Registers a consult using the automatic approach.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#by_id/1" data-no-tooltip translate="no">by_id(id)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns a consult by its ID.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#cancel/1" data-no-tooltip translate="no">cancel(consult)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Cancels an active consult.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#change_case/2" data-no-tooltip translate="no">change_case(consult, new_case_code)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Changes the case code of an active consult</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#extern_reason/2" data-no-tooltip translate="no">extern_reason(consult, case_code)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Supplies the adequate case code to convey a reason for the encounter with an
+extern patient.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#manual/5" data-no-tooltip translate="no">manual(encounter, force_admin_card, field_code, case_code, opts)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Registers a consult manually.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#md_relation/2" data-no-tooltip translate="no">md_relation(consult, new_relation)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>This function sets the <code class="inline">md_relation</code> flag of the person associated with the
+consult and then updates the consult.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#provide_ecard_signature/3" data-no-tooltip translate="no">provide_ecard_signature(reader, person, token)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Registeres an ecard signature with the system.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#retry/2" data-no-tooltip translate="no">retry(consult, changes)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Retry a faulted consult with other data.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#retry_action/1" data-no-tooltip translate="no">retry_action(request)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Retries a specific action idempotently with its transaction ID.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#send_supplemental_answer/3" data-no-tooltip translate="no">send_supplemental_answer(consult, user_id, answer_value)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Sends an answer for a supplemental info request.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#supply_claim/2" data-no-tooltip translate="no">supply_claim(consult, list)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Supply claim information for a consult in claims-fault state.</p></div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="answer_supplemental_consult/1">
+
+  <div class="detail-header">
+    <a href="#answer_supplemental_consult/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">answer_supplemental_consult(request)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="automatic/1">
+
+  <div class="detail-header">
+    <a href="#automatic/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">automatic(encounter)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> automatic(<a href="Owat.Model.Encounter.html#t:t/0">Owat.Model.Encounter.t</a>()) ::
+  {:ok, Owat.Model.Consult.t()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Registers a consult using the automatic approach.</p>
+  </section>
+</section>
+<section class="detail" id="by_id/1">
+
+  <div class="detail-header">
+    <a href="#by_id/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">by_id(id)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> by_id(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: Owat.Model.Consult.t() | nil</pre>
+
+      </div>
+
+<p>Returns a consult by its ID.</p>
+  </section>
+</section>
+<section class="detail" id="cancel/1">
+
+  <div class="detail-header">
+    <a href="#cancel/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">cancel(consult)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> cancel(Owat.Model.Consult.t()) ::
+  {:ok, Owat.Model.Consult.t()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Cancels an active consult.</p>
+  </section>
+</section>
+<section class="detail" id="change_case/2">
+
+  <div class="detail-header">
+    <a href="#change_case/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">change_case(consult, new_case_code)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> change_case(Owat.Model.Consult.t(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) ::
+  {:ok, Owat.Model.Consult.t()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Changes the case code of an active consult</p>
+  </section>
+</section>
+<section class="detail" id="extern_reason/2">
+
+  <div class="detail-header">
+    <a href="#extern_reason/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">extern_reason(consult, case_code)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> extern_reason(Owat.Model.Consult.t(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) ::
+  {:ok, Owat.Model.Consult.t()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Supplies the adequate case code to convey a reason for the encounter with an
+extern patient.</p><p>This function only takes consults in <code class="inline">EXTERN</code> state without vouchers.</p>
+  </section>
+</section>
+<section class="detail" id="manual/5">
+
+  <div class="detail-header">
+    <a href="#manual/5" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">manual(encounter, force_admin_card, field_code, case_code, opts)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> manual(<a href="Owat.Model.Encounter.html#t:t/0">Owat.Model.Encounter.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [
+  <a href="Owat.Gin.SS12.Kse.html#t:consult_opt/0">Owat.Gin.SS12.Kse.consult_opt</a>()
+]) :: {:ok, Owat.Model.Consult.t()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Registers a consult manually.</p>
+  </section>
+</section>
+<section class="detail" id="md_relation/2">
+
+  <div class="detail-header">
+    <a href="#md_relation/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">md_relation(consult, new_relation)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> md_relation(Owat.Model.Consult.t(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) ::
+  {:ok, Owat.Model.Consult.t()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>This function sets the <code class="inline">md_relation</code> flag of the person associated with the
+consult and then updates the consult.</p><p>When the new relation is <code class="inline">EXTERN</code> the consult will simply be set to extern.
+When the new relation is either <code class="inline">PRIMARY</code> or <code class="inline">PRIMARY_TO_BE</code> then a new
+consult will be registered. Setting the relation to <code class="inline">nil</code> is not supported.</p><p>This function accepts only consults in <code class="inline">LOCKED</code> (this state is now denoted
+by state <code class="inline">FAULT</code> with an error code of <code class="inline">ZS-00015</code>) or
+<code class="inline">EXTERN</code> state without vouchers.</p>
+  </section>
+</section>
+<section class="detail" id="provide_ecard_signature/3">
+
+  <div class="detail-header">
+    <a href="#provide_ecard_signature/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">provide_ecard_signature(reader, person, token)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> provide_ecard_signature(
+  <a href="Owat.Gin.ECardReader.html#t:t/0">Owat.Gin.ECardReader.t</a>(),
+  Owat.Model.Person.t(),
+  <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()
+) ::
+  Owat.Model.ECardSignature.t()</pre>
+
+      </div>
+
+<p>Registeres an ecard signature with the system.</p>
+  </section>
+</section>
+<section class="detail" id="retry/2">
+
+  <div class="detail-header">
+    <a href="#retry/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">retry(consult, changes)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> retry(Owat.Model.Consult.t(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()) ::
+  {:ok, Owat.Model.Consult.t()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Retry a faulted consult with other data.</p><p>Merges properties of <code class="inline">changes</code> into the data from the previous request.</p>
+  </section>
+</section>
+<section class="detail" id="retry_action/1">
+
+  <div class="detail-header">
+    <a href="#retry_action/1" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">retry_action(request)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> retry_action(Owat.Model.ConsultRequest.t()) ::
+  {:ok, Owat.Model.Consult.t()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Retries a specific action idempotently with its transaction ID.</p>
+  </section>
+</section>
+<section class="detail" id="send_supplemental_answer/3">
+
+  <div class="detail-header">
+    <a href="#send_supplemental_answer/3" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">send_supplemental_answer(consult, user_id, answer_value)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> send_supplemental_answer(Owat.Model.Consult.t(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) ::
+  :ok | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Sends an answer for a supplemental info request.</p>
+  </section>
+</section>
+<section class="detail" id="supply_claim/2">
+
+  <div class="detail-header">
+    <a href="#supply_claim/2" class="detail-link" data-no-tooltip title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">supply_claim(consult, list)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> supply_claim(Owat.Model.Consult.t(), <a href="https://hexdocs.pm/elixir/Keyword.html#t:t/0">Keyword.t</a>()) ::
+  {:ok, Owat.Model.Consult.t()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Supply claim information for a consult in claims-fault state.</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="PVE.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
